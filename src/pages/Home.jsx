@@ -1,5 +1,6 @@
 import { Navbar } from "../components/Navbar";
 import { StarBackground } from "../components/StarBackground";
+import { HeroSection } from "../components/HeroSection";
 
 // Home.jsx
 export function Home() {
@@ -12,7 +13,9 @@ export function Home() {
     {/* Navbar */}
     <Navbar />
     {/* Main Content */}
-
+    <main>
+        <HeroSection />
+    </main>
 
     {/* Footer */}
 
