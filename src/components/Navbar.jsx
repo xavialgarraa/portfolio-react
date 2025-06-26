@@ -85,14 +85,16 @@ export const Navbar = () => {
 
         {/* Menú móvil */}
         <div
-          className={cn(
-            "fixed inset-0 bg-background/95 backdrop-blur-md z-40 flex flex-col items-center justify-center",
-            "transition-all duration-300 md:hidden",
-            isMenuOpen
-              ? "opacity-100 pointer-events-auto"
-              : "opacity-0 pointer-events-none"
-          )}
+            className={cn(
+                "fixed inset-0 top-0 h-screen w-full z-40 bg-background/95 backdrop-blur-md",
+                "flex flex-col items-center justify-center overflow-y-auto",
+                "transition-all duration-300 md:hidden",
+                isMenuOpen
+                ? "opacity-100 pointer-events-auto"
+                : "opacity-0 pointer-events-none"
+            )}
         >
+
           <div className="flex flex-col space-y-8 text-xl items-center">
             {navItems.map((item) => (
               <a

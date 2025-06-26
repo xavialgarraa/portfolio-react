@@ -5,11 +5,11 @@ export const HeroSection = () => {
   return (
     <section
       id="hero"
-      className="relative min-h-screen flex items-center justify-center px-6 overflow-hidden"
+      className="relative min-h-screen flex flex-col items-center justify-center px-4"
     >
       
       {/* Contenido principal */}
-      <div className="z-50 relative max-w-6xl mx-auto w-full flex flex-col md:flex-row items-center justify-center gap-10 px-4 md:px-8 py-12">
+      <div className="z-10 relative max-w-4xl mx-auto w-full flex flex-col md:flex-row items-center justify-center gap-10 px-4 md:px-8 py-12">
         {/* Imagen lateral rectangular */}
         <img
           src={Icono}
