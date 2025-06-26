@@ -1,25 +1,21 @@
-import { ThemeToggle } from "../components/ThemeToggle";
+import { Navbar } from "../components/Navbar";
+import { StarBackground } from "../components/StarBackground";
 
 // Home.jsx
 export function Home() {
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
     
-    {/* Theme */}
-    <ThemeToggle />
-   
-        
     {/* Background */}
-
+    <StarBackground />
 
     {/* Navbar */}
-
+    <Navbar />
     {/* Main Content */}
 
 
     {/* Footer */}
 
-    Página de Inicio
     
     </div>
     );
