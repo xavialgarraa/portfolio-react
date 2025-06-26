@@ -2,6 +2,7 @@ import { Navbar } from "../components/Navbar";
 import { StarBackground } from "../components/StarBackground";
 import { HeroSection } from "../components/HeroSection";
 import { AboutMe } from "../components/AboutMe";
+import { Contact } from "../components/Contact";
 
 // Home.jsx
 export function Home() {
@@ -17,6 +18,7 @@ export function Home() {
     <main>
         <HeroSection />
         <AboutMe />
+        <Contact />
     </main>
 
     {/* Footer */}

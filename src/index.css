@@ -76,6 +76,8 @@
 
     --primary: 250 47% 60%;                /* Color primario (botones, enlaces) */
     --primary-foreground: 210 40% 98%;     /* Texto encima del primario */
+    --primary-foreground-2: 210 40% 18%;       /* Texto blanco encima del primario */
+
   }
 
   .dark {
@@ -87,6 +89,8 @@
 
     --primary: 250 100% 70%;               /* Color primario en modo oscuro */
     --primary-foreground: 0 0% 100%;       /* Texto blanco encima del primario */
+    --primary-foreground-2: 0 0% 100%;       /* Texto blanco encima del primario */
+
   }
 }
 
