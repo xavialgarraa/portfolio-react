@@ -17,8 +17,8 @@ function App() {
         </header>
          */}
         <Routes>
-          <Route index element={<Home />} />
-          <Route path="*" element = {<NotFound />}/>
+          <Route path="*" element={<Home />} />
+          {/* {<Route path="*" element = {<NotFound />}/>} */}
         </Routes>
       </BrowserRouter>
     </>
