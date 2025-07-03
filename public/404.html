@@ -1,8 +1,18 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta http-equiv="refresh" content="0; url=/portfolio-react/" />
+    <meta charset="UTF-8" />
+    <title>Redirecting…</title>
+    <script>
+      // Redirigeix a index.html mantenint la ruta original
+      const redirectTo = window.location.pathname.replace(
+        /^\/portfolio-react/,
+        ''
+      );
+      window.location.replace('/portfolio-react/index.html' + '?redirect=' + redirectTo);
+    </script>
   </head>
   <body>
+    <p>Redirigint…</p>
   </body>
 </html>
