@@ -9,7 +9,7 @@ export const HeroSection = () => {
     >
       
       {/* Contenido principal */}
-      <div className="z-10 relative max-w-4xl mx-auto w-full flex flex-col md:flex-row items-center justify-center gap-10 px-4 md:px-8 py-12">
+      <div className="z-10 relative max-w-4xl mx-auto w-full flex flex-col md:flex-row items-center justify-center gap-10 pt-20 md:py-12">
         {/* Imagen lateral rectangular */}
         <img
           src={Icono}
@@ -46,7 +46,7 @@ export const HeroSection = () => {
       </div>
 
       {/* Icono scroll */}
-      <div className="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-10 animate-bounce">
+      <div className="hidden sm:flex absolute bottom-6 left-1/2 transform -translate-x-1/2 flex flex-col items-center z-10 animate-bounce">
         <span className="text-sm text-muted-foreground mb-2">Scroll</span>
         <ArrowDown className="h-5 w-5 text-primary" />
       </div>

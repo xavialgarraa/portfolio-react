@@ -9,7 +9,7 @@ const navItems = [
   { name: "Home", href: "#hero" },
   { name: "About", href: "#about" },
   { name: "Projects", href: "#projects" },
-  { name: "AxProd", href: "#AxProd" },
+  { name: "AxProd", href: "/portfolio-react/axprod" },
   { name: "Contact", href: "#contact" },
 ];
 
