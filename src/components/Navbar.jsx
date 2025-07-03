@@ -6,11 +6,11 @@ import LogoDark from "../assets/logo-blanco.png";
 import { ThemeToggle } from "./ThemeToggle"; 
 
 const navItems = [
-  { name: "Home", href: "#hero" },
-  { name: "About", href: "#about" },
-  { name: "Projects", href: "#projects" },
+  { name: "Home", href: "/portfolio-react#hero" },
+  { name: "About", href: "/portfolio-react#about" },
+  { name: "Projects", href: "/portfolio-react#projects" },
   { name: "AxProd", href: "/portfolio-react/axprod" },
-  { name: "Contact", href: "#contact" },
+  { name: "Contact", href: "/portfolio-react#contact" },
 ];
 
 export const Navbar = () => {

@@ -4,6 +4,7 @@ import { HeroSection } from "../components/HeroSection";
 import { AboutMe } from "../components/AboutMe";
 import { Contact } from "../components/Contact";
 import { Projects } from "../components/Projects";
+import { Footer } from "../components/Footer";
 
 // Home.jsx
 export function Home() {
@@ -25,7 +26,9 @@ export function Home() {
 
     {/* Footer */}
 
-    
+    <Footer />
+    {/* Optional: Add a scroll to top button */}
+     
     </div>
     );
 }
