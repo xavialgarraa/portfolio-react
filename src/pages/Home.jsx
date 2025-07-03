@@ -3,6 +3,7 @@ import { StarBackground } from "../components/StarBackground";
 import { HeroSection } from "../components/HeroSection";
 import { AboutMe } from "../components/AboutMe";
 import { Contact } from "../components/Contact";
+import { Projects } from "../components/Projects";
 
 // Home.jsx
 export function Home() {
@@ -18,6 +19,7 @@ export function Home() {
     <main>
         <HeroSection />
         <AboutMe />
+        <Projects />
         <Contact />
     </main>
 
