@@ -48,7 +48,7 @@ export const Navbar = () => {
       <div className="container flex items-center justify-between">
         <a
           className="text-xl font-bold text-primary flex items-center space-x-2"
-          href="#hero"
+          href="/portfolio-react#hero"
         >
           <img
             src={isDarkMode ? LogoDark : LogoLight}
