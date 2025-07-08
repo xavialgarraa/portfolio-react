@@ -42,14 +42,14 @@ export const PackCard = ({ title, price, description, images }) => {
             loop
             autoPlay
             playsInline
-            className="w-full h-48 object-cover rounded-md"
+            className="aspect-video w-full object-cover rounded-md"
           />
         ) : (
           <img
             ref={mediaRef}
             src={images[current]}
             alt={`Preview ${current + 1}`}
-            className="w-full h-48 object-cover rounded-md"
+            className="aspect-video w-full object-cover rounded-md"
           />
         )}
 

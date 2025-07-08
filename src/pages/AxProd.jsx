@@ -5,8 +5,14 @@ import { HeroSection } from "../components/HeroSection";
 import { useEffect, useState } from "react";
 import Logo from "../assets/axprod.png";
 import LogoDark from "../assets/axprod-dark.png";
-import Video1 from "../assets/alineacion.mp4";
-
+import Video1 from "../assets/packs/alineacion.mp4";
+import Video2 from "../assets/packs/alineacion-estatica.mp4";
+import Video3 from "../assets/packs/estadisticas.mp4";
+import Marcador2 from "../assets/packs/marcador-2.mp4";
+import Marcador from "../assets/packs/marcador.mp4";
+import Cambios from "../assets/packs/cambios.mp4";
+import Clasificación from "../assets/packs/clasificacion.png";
+import Previa from "../assets/packs/previa.png";
 
 import { PackCard } from "../components/PackCard";
 
@@ -16,8 +22,9 @@ const packData = [
     price: "15 €",
     description: "Marcador simple, alineacions i rètols estàtics. Ideal per clubs que comencen.",
     images: [
-      Video1,
-      "/grafic-basic-2.jpg",
+      Marcador,
+      Video2,
+      Video3, 
     ],
   },
   {
@@ -25,8 +32,9 @@ const packData = [
     price: "30 €",
     description: "Marcador animat, estadístiques i transicions per OBS. Disseny personalitzat.",
     images: [
-      "/grafic-advanced-1.jpg",
-      "/grafic-advanced-2.jpg",
+      Video1,
+      Clasificación,
+      Cambios,
     ],
   },
   {
@@ -34,9 +42,8 @@ const packData = [
     price: "A consultar",
     description: "Gràfics a mida amb integració específica segons necessitats del club o la lliga.",
     images: [
-      "/grafic-custom-1.jpg",
-      "/grafic-custom-2.jpg",
-      "/grafic-custom-3.jpg",
+      Marcador2,
+      Previa,
     ],
   },
 ];
@@ -47,12 +54,17 @@ export const AxProd = () => {
   const [logoSrc, setLogoSrc] = useState(Logo); 
 
   useEffect(() => {
+  // Función para actualizar el logo
+  const updateLogo = () => {
     const storedTheme = localStorage.getItem("theme");
-    if (storedTheme === "dark") {
-      setLogoSrc(LogoDark);
-    } else {
-      setLogoSrc(Logo);
-    }
+    setLogoSrc(storedTheme === "dark" ? Logo : LogoDark);
+  };
+
+  updateLogo();
+
+  window.addEventListener('storage', updateLogo);
+
+   return () => window.removeEventListener('storage', updateLogo);
   }, []);
 
   return (
@@ -151,7 +163,7 @@ export const AxProd = () => {
       Cada pack inclou plantilles personalitzades amb múltiples formats visuals, adaptats a OBS i altres sistemes de streaming.
     </p>
 
-    <div className="grid lg:grid-cols-3 gap-8">
+    <div className="grid 2xl:grid-cols-3 gap-8">
       {packData.map((pack, i) => (
         <PackCard key={i} {...pack} />
       ))}
