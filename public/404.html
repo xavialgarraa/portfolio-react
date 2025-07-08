@@ -1,19 +1,13 @@
-<!DOCTYPE html>
-<html lang="ca">
+<!doctype html>
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Redireccionant...</title>
-    <meta http-equiv="refresh" content="0; URL=/portfolio-react/index.html">
-    <script>
-      // Preserva la ruta original i la passa com a query param
-      const path = location.pathname.replace(/^\/portfolio-react/, '');
-      const search = location.search || '';
-      const hash = location.hash || '';
-      const redirectUrl = `/portfolio-react/index.html?redirect=${path}${search}${hash}`;
-      window.location.replace(redirectUrl);
-    </script>
+    <link rel="icon" type="image/png" href="/logo-blanco.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AlgarraXavi</title>
   </head>
   <body>
-    <p>Redireccionant cap a l’aplicació...</p>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
