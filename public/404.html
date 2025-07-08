@@ -2,14 +2,12 @@
 <html>
   <head>
     <meta charset="UTF-8" />
-    <title>Redirecting…</title>
+    <title>Redirecting...</title>
     <script>
-      // Redirigeix a index.html mantenint la ruta original
-      const redirectTo = window.location.pathname.replace(
-        /^\/portfolio-react/,
-        ''
-      );
-      window.location.replace('/portfolio-react/index.html' + '?redirect=' + redirectTo);
+      // Redirigeix cap a index.html mantenint la ruta original després del prefix
+      const fullPath = window.location.pathname;
+      const cleanPath = fullPath.replace(/^\/portfolio-react/, '');
+      window.location.replace('/portfolio-react/index.html' + '#' + cleanPath);
     </script>
   </head>
   <body>

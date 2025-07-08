@@ -151,7 +151,7 @@ export const AxProd = () => {
       Cada pack inclou plantilles personalitzades amb múltiples formats visuals, adaptats a OBS i altres sistemes de streaming.
     </p>
 
-    <div className="grid md:grid-cols-3 gap-8">
+    <div className="grid lg:grid-cols-3 gap-8">
       {packData.map((pack, i) => (
         <PackCard key={i} {...pack} />
       ))}
