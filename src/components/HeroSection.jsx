@@ -1,7 +1,14 @@
 import { ArrowDown } from "lucide-react";
+import { useEffect, useState } from "react";
 import Icono from "../assets/xavi.jpg";
+import { translationshero } from "../translations/TranslationHero";
+import { useLanguage } from "../context/LanguageContext";
+
 
 export const HeroSection = () => {
+  const { language } = useLanguage();
+  const t = translationshero[language];
+
   return (
     <section
       id="hero"
@@ -22,16 +29,15 @@ export const HeroSection = () => {
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight">
                 <span className="text-primary opacity-0 animate-fade-in-delay-1">
                 {" "}
-                Xavi Algarra
+                {t.name}
                 </span>
             </h1>
             <h1 className="text-3xl sm:text-3xl font-bold text-gradient animate-fade-in-delay-1">
-                Estudiant d'Enginyeria Informàtica a la UPF
+                {t.title}
             </h1>
 
             <p className="text-base sm:text-lg text-muted-foreground max-w-xl animate-fade-in-delay-2 text-left">
-                Desenvolupo eines digitals que combinen tecnologia, comunicació i esport. 
-                Especial interès en el desenvolupament web, la intel·ligència artificial aplicada i l’audiovisual esportiu.
+                {t.description}
             </p>
 
             <div className="pt-4 opacity-0 animate-fade-in-delay-4">

@@ -4,19 +4,17 @@ import { useEffect, useState } from "react";
 import LogoLight from "../assets/logo.png";
 import LogoDark from "../assets/logo-blanco.png";
 import { ThemeToggle } from "./ThemeToggle"; 
+import { translations } from "../translations/TranslationNavbar";
+import Spain from "../assets/Bandera_de_España.svg.webp"
+import { useLanguage } from "../context/LanguageContext";
 
-const navItems = [
-  { name: "Home", href: "#hero" },
-  { name: "About", href: "#about" },
-  { name: "Projects", href: "#projects" },
-  { name: "AxProd", href: "/portfolio-react/axprod" },
-  { name: "Contact", href: "#contact" },
-];
+
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const { language, changeLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -24,6 +22,8 @@ export const Navbar = () => {
       const storedTheme = localStorage.getItem("theme");
       setIsDarkMode(storedTheme === "dark");
     };
+    const storedLang = localStorage.getItem("lang");
+    if (storedLang) changeLanguage(storedLang);
 
     handleScroll();
     checkStoredTheme();
@@ -35,6 +35,21 @@ export const Navbar = () => {
       window.removeEventListener("storage", checkStoredTheme);
     };
   }, []);
+
+  const t = translations[language];
+
+  const navItems = [
+    { name: t.home, href: "#hero" },
+    { name: t.about, href: "#about" },
+    { name: t.projects, href: "#projects" },
+    { name: t.axprod, href: "/portfolio-react/axprod" },
+    { name: t.contact, href: "#contact" },
+  ];
+
+  const handleLangChange = (e) => {
+    const newLang = e.target.value;
+    changeLanguage(newLang);
+  };
 
   return (
     <nav
@@ -48,7 +63,7 @@ export const Navbar = () => {
       <div className="container flex items-center justify-between">
         <a
           className="text-xl font-bold text-primary flex items-center space-x-2"
-          href="/portfolio-react#hero"
+          href="/portfolio-react/#hero"
         >
           <img
             src={isDarkMode ? LogoDark : LogoLight}
@@ -56,7 +71,7 @@ export const Navbar = () => {
             className="w-8 h-8 transition-all duration-300"
           />
           <span className="relative z-10">
-            <span className="text-glow text-foreground">Xavi Algarra</span> Portfolio
+            <span className="text-glow text-foreground">Xavi Algarra</span> {t.portfolio}
           </span>
         </a>
 
@@ -71,7 +86,18 @@ export const Navbar = () => {
               {item.name}
             </a>
           ))}
+
           <ThemeToggle />
+
+          <select
+            value={language}
+            onChange={handleLangChange}
+            className="bg-foreground/5 border border-border rounded px-2 py-1 text-sm text-primary hover:border-primary"
+          >
+            <option value="ca">CAT</option>
+            <option value="es">ESP</option>
+            <option value="en">ENG</option>
+          </select>
         </div>
 
         {/* Botón desplegable */}
@@ -85,16 +111,15 @@ export const Navbar = () => {
 
         {/* Menú móvil */}
         <div
-            className={cn(
-                "fixed inset-0 top-0 h-screen w-full z-40 bg-background/95 backdrop-blur-md",
-                "flex flex-col items-center justify-center overflow-y-auto",
-                "transition-all duration-300 md:hidden",
-                isMenuOpen
-                ? "opacity-100 pointer-events-auto"
-                : "opacity-0 pointer-events-none"
-            )}
+          className={cn(
+            "fixed inset-0 top-0 h-screen w-full z-40 bg-background/95 backdrop-blur-md",
+            "flex flex-col items-center justify-center overflow-y-auto",
+            "transition-all duration-300 md:hidden",
+            isMenuOpen
+              ? "opacity-100 pointer-events-auto"
+              : "opacity-0 pointer-events-none"
+          )}
         >
-
           <div className="flex flex-col space-y-8 text-xl items-center">
             {navItems.map((item) => (
               <a
@@ -106,8 +131,17 @@ export const Navbar = () => {
                 {item.name}
               </a>
             ))}
-            {/* Aquí va el toggle visible en desplegable */}
             <ThemeToggle onClickOutside={() => setIsMenuOpen(false)} />
+
+            <select
+              value={language}
+              onChange={handleLangChange}
+              className="bg-transparent border border-border rounded px-2 py-1 text-sm text-foreground hover:border-primary"
+            >
+              <option value="ca">CAT</option>
+              <option value="es">🇪🇸 ESP</option>
+              <option value="en">🇬🇧 ENG</option>
+            </select>
           </div>
         </div>
       </div>
