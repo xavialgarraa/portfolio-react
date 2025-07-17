@@ -13,6 +13,8 @@ import Marcador from "../assets/packs/marcador.mp4";
 import Cambios from "../assets/packs/cambios.mp4";
 import Clasificación from "../assets/packs/clasificacion.png";
 import Previa from "../assets/packs/previa.png";
+import { Linkedin, Instagram, Github, MessageCircle } from "lucide-react";
+
 
 import { PackCard } from "../components/PackCard";
 
@@ -134,6 +136,25 @@ export const AxProd = () => {
         <div className="bg-card border border-border rounded-lg p-6 shadow-sm">
           <h3 className="font-semibold text-lg">Narració esportiva</h3>
           <p className="text-muted-foreground mt-2">Experiència en futbol i hoquei patins. Estil àgil i tècnic amb coneixement del joc i passió per comunicar.</p>
+        </div>
+        <div className="bg-card border border-border rounded-lg p-6 shadow-sm">
+          <h3 className="font-semibold text-lg">La Resaca Deportiva</h3>
+          <p className="text-muted-foreground mt-2">Canal de contingut esportiu local. Resums esportius de la setmana, entrevistes y més.</p>
+          <div className="flex items-center gap-2 mt-3">
+
+            <a
+              href="https://www.instagram.com/laresacadeportiva_" // reemplaza por tu enlace real
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary hover:text-primary/80 transition"
+            >
+              <Instagram className="w-5 h-5" /> <span>Segueix-nos</span>
+            </a>
+          </div>
+        </div>
+        <div className="bg-card border border-border rounded-lg p-6 shadow-sm">
+          <h3 className="font-semibold text-lg">Desenvolupament web esportiu</h3>
+          <p className="text-muted-foreground mt-2">**EN PROCÉS** Projecte personal de plataforma per a anàlisi de partits de futbol: detecció d’accions destacades, generació d’estadístiques i mapes de calor mitjançant visió per computador i Python.</p>
         </div>
       </div>
     </section>
