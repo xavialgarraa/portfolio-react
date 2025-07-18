@@ -138,7 +138,9 @@ export const AxProd = () => {
           <p className="text-muted-foreground mt-2">Experiència en futbol i hoquei patins. Estil àgil i tècnic amb coneixement del joc i passió per comunicar.</p>
         </div>
         <div className="bg-card border border-border rounded-lg p-6 shadow-sm">
-          <h3 className="font-semibold text-lg">La Resaca Deportiva</h3>
+          <a href="/portfolio-react/axprod/laresacadeportiva" target="_blank" rel="noopener noreferrer">
+            <h3 className="font-semibold text-lg text-lime-600 hover:underline">La Resaca Deportiva</h3>
+          </a>
           <p className="text-muted-foreground mt-2">Canal de contingut esportiu local. Resums esportius de la setmana, entrevistes y més.</p>
           <div className="flex items-center gap-2 mt-3">
 
@@ -148,7 +150,7 @@ export const AxProd = () => {
               rel="noopener noreferrer"
               className="text-primary hover:text-primary/80 transition"
             >
-              <Instagram className="w-5 h-5" /> <span>Segueix-nos</span>
+              <Instagram className="w-5 h-5" /> <span>Instagram</span>
             </a>
           </div>
         </div>
