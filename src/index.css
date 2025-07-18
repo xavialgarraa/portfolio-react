@@ -74,7 +74,7 @@
     --card: 0 0% 100%;                     /* Fondo de tarjetas */
     --border: 214 32% 91%;                 /* Bordes sutiles */
 
-    --primary: 250 47% 60%;                /* Color primario (botones, enlaces) */
+    --primary: 215 85% 27%;                /* Color primario (botones, enlaces) */
     --primary-foreground: 210 40% 98%;     /* Texto encima del primario */
     --primary-foreground-2: 210 40% 18%;       /* Texto blanco encima del primario */
 
@@ -87,7 +87,7 @@
     --card: 222 47% 8%;                    /* Fondo de tarjetas en modo oscuro */
     --border: 215 19% 35%;                 /* Bordes en modo oscuro */
 
-    --primary: 250 100% 70%;               /* Color primario en modo oscuro */
+    --primary: 215 100% 50%;               /* Color primario en modo oscuro */
     --primary-foreground: 0 0% 100%;       /* Texto blanco encima del primario */
     --primary-foreground-2: 0 0% 100%;       /* Texto blanco encima del primario */
 

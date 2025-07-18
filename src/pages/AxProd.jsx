@@ -17,6 +17,8 @@ import { Linkedin, Instagram, Github, MessageCircle } from "lucide-react";
 
 
 import { PackCard } from "../components/PackCard";
+import { Contact } from "../components/Contact";
+import { m } from "framer-motion";
 
 const packData = [
   {
@@ -28,6 +30,7 @@ const packData = [
       Video2,
       Video3, 
     ],
+    message: "Estic interessat en el Pack Bàsic. M'agradaria saber més detalls sobre el seu contingut i com puc adquirir-lo.",
   },
   {
     title: "Pack Avançat",
@@ -38,6 +41,7 @@ const packData = [
       Clasificación,
       Cambios,
     ],
+    message: "M'interessa el Pack Avançat. Voldria conèixer les opcions de personalització i com puc fer la compra.",
   },
   {
     title: "Pack Personalitzat",
@@ -47,6 +51,7 @@ const packData = [
       Marcador2,
       Previa,
     ],
+    message: "Vull un Pack Personalitzat. Necessito dissenyar gràfics específics per a la meva competició i voldria saber com procedir.",
   },
 ];
 
@@ -207,9 +212,10 @@ export const AxProd = () => {
     <section className="text-center">
       <h2 className="text-xl font-semibold mb-2">Vols fer una retransmissió professional?</h2>
       <p className="text-muted-foreground mb-6">Demana un pressupost sense compromís. Treballem amb clubs, escoles i entitats esportives locals.</p>
-      <a href="/portfolio-react#contact" className="cosmic-button">Contacta amb AxProd</a>
+      <a href="#contact" className="cosmic-button">Contacta amb AxProd</a>
     </section>
 
+    <Contact />
 
     </main>
 

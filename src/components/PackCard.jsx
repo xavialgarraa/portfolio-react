@@ -1,7 +1,7 @@
 import { useState, useRef } from "react";
 import { Maximize2 } from "lucide-react";
 
-export const PackCard = ({ title, price, description, images }) => {
+export const PackCard = ({ title, price, description, images, message }) => {
   const [current, setCurrent] = useState(0);
   const mediaRef = useRef(null);
 
@@ -89,11 +89,12 @@ export const PackCard = ({ title, price, description, images }) => {
       <p className="font-bold text-primary">{price}</p>
 
       <a
-        href="#contact"
+        href={`#contact?message=${encodeURIComponent(message)}`}
         className="mt-2 inline-block cosmic-button text-sm text-center"
       >
         Demana aquest pack →
       </a>
+
     </div>
   );
 };

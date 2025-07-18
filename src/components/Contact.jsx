@@ -1,8 +1,19 @@
 import { Send } from "lucide-react";
 import { Linkedin, Instagram, Github, MessageCircle } from "lucide-react";
+import { useEffect, useState } from "react";
 
 
 export const Contact = () => {
+  const [mensaje, setMensaje] = useState("");
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.hash.split("?")[1]);
+    const mensajePredefinido = params.get("message");
+    if (mensajePredefinido) {
+      setMensaje(mensajePredefinido);
+    }
+  }, []);
+
   return (
     <section id="contact" className="py-24 px-4">
       <div className="container max-w-3xl mx-auto text-center space-y-10">
@@ -57,6 +68,8 @@ export const Contact = () => {
             </label>
             <textarea
               name="message"
+              value={mensaje}
+              onChange={(e) => setMensaje(e.target.value)}
               rows={5}
               required
               placeholder="Escriu el teu missatge aquí..."
