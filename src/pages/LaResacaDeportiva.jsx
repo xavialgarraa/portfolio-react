@@ -3,6 +3,8 @@ import { Linkedin, Instagram, Github, MessageCircle, Youtube, ArrowUpCircle, Arr
 import { motion, AnimatePresence } from "framer-motion";
 import preguntas from "../js/preguntas.js";
 import LogoDark from "../assets/logo-blanco.png";
+import JuegoPartidos from "../components/JuegoPartidos";
+
 
 const episodes = [
   { id: "xQpzsf3CK4Q", title: "Episodio 5 – Semana 8-9 Mar", date: "23/02/2025" },
@@ -242,6 +244,7 @@ export function LaResacaDeportiva() {
       <Episodios episodes={episodes} />
       <Noticias noticias={noticias} />
       <Trivia preguntas={preguntas} />
+      <JuegoPartidos />
       <Footer />
     </div>
   );
