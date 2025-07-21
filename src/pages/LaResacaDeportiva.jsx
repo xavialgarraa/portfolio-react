@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import preguntas from "../js/preguntas.js";
 import LogoDark from "../assets/logo-blanco.png";
 import JuegoPartidos from "../components/JuegoPartidos";
+import PiedraPapelTijera from "../components/PiedraPapelTijera.jsx";
 
 
 const episodes = [
@@ -34,18 +35,19 @@ const noticias = [
 function Episodios({ episodes }) {
   return (
     <section className="px-4 py-12 max-w-5xl mx-auto">
-      <h2 className="text-3xl font-bold mb-6 border-b-4 border-lime-400 pb-2 tracking-wide uppercase text-white">
+      <h2 className="text-3xl font-bold mb-6 border-b-2 border-lime-400 pb-2 tracking-wide uppercase text-white">
         Último Episodio
       </h2>
-      <div className="aspect-w-16 aspect-h-9 mb-10">
-        <iframe
-          className="w-full h-96 rounded-xl border-4 border-lime-400 shadow-2xl"
-          src={`https://www.youtube.com/embed/${episodes[0].id}`}
-          title={episodes[0].title}
-          frameBorder="0"
-          allowFullScreen
-        ></iframe>
-      </div>
+      <div className="relative w-full pb-[56.25%] mb-10">
+      <iframe
+        className="absolute top-0 left-0 w-full h-full rounded-xl border-2 border-lime-400 shadow-2xl"
+        src={`https://www.youtube.com/embed/${episodes[0].id}`}
+        title={episodes[0].title}
+        frameBorder="0"
+        allowFullScreen
+      ></iframe>
+    </div>
+
 
       <h2 className="text-2xl font-semibold mb-4 border-b-2 border-lime-300 pb-1 uppercase text-white">
         Episodios Anteriores
@@ -231,6 +233,7 @@ function Footer() {
 import triviaCover from "../assets/juegos/trivia-cover.png";
 import partidosCover from "../assets/juegos/partidos-cover.png";
 import fantasyCover from "../assets/juegos/fantasy-cover.png";
+import pptCover from "../assets/juegos/ppt.png";
 import { ArrowLeft } from "lucide-react";
 
 
@@ -252,17 +255,22 @@ export default function Juegos() {
       </h2>
 
       {!juegoActivo && (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           <div onClick={() => iniciarJuego("trivia")} className="cursor-pointer hover:scale-105 transition">
-            <img src={triviaCover} alt="Trivial Lloretenc" className="rounded-xl shadow-lg border border-lime-400" />
+            <img src={triviaCover} alt="Trivial Lloretenc" className="rounded-xl border border-lime-400 shadow-lg" />
             <p className="mt-2 text-center text-lime-300 font-semibold">Trivial Lloretenc</p>
           </div>
           <div onClick={() => iniciarJuego("partidos")} className="cursor-pointer hover:scale-105 transition">
-            <img src={partidosCover} alt="Juego de Partidos" className="rounded-xl shadow-lg border border-lime-400" />
+            <img src={partidosCover} alt="Juego de Partidos" className="rounded-xl border border-lime-400 shadow-lg" />
             <p className="mt-2 text-center text-lime-300 font-semibold">Juego de Partidos</p>
           </div>
+          <div onClick={() => iniciarJuego("ppt")} className="cursor-pointer hover:scale-105 transition">
+            <img src={pptCover} alt="Piedra Papel Tijera" className="rounded-xl border border-lime-400 shadow-lg" />
+            <p className="mt-2 text-center text-lime-300 font-semibold">Piedra Papel Tijera</p>
+          </div>
+
           <div className="opacity-60">
-            <img src={fantasyCover} alt="Lloret Fantasy" className="rounded-xl shadow-lg border border-dashed border-lime-400" />
+            <img src={fantasyCover} alt="Lloret Fantasy" className="rounded-xl border border-dashed border-lime-400 shadow-lg" />
             <p className="mt-2 text-center text-lime-400 italic">Lloret Fantasy (Próximamente)</p>
           </div>
         </div>
@@ -298,6 +306,22 @@ export default function Juegos() {
         <JuegoPartidos />
       </div>
     )}
+
+    {juegoActivo === "ppt" && (
+      <div>
+        <div className="text-right mb-4">
+          <button
+            onClick={volver}
+            className="inline-flex items-center gap-1 text-sm text-lime-300 hover:text-white hover:gap-2 transition-all duration-300"
+          >
+            <ArrowLeft size={16} />
+            Volver
+          </button>
+        </div>
+        <PiedraPapelTijera />
+      </div>
+    )}
+
     </section>
   );
 }
