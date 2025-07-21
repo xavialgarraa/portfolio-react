@@ -17,7 +17,7 @@ const noticias = [
   {
     titulo: "Marc Siurana deja de ser entrenador del Club Bàsquet Unificat Lloret",
     fecha: "18 julio 2025",
-    resumen: "El gran entrenador anunció su salida a través de un comunicado en las redes sociales del Club Bàsquet Lloret.",
+    resumen: "Su salida llegó a los fans a través de un comunicado en las redes sociales del Club Bàsquet Lloret.",
   },
   {
     titulo: "Jordi Cantano es el nuevo primer entrenador de la Juventus Lloret",
