@@ -23,12 +23,13 @@ export default function JuegoPartidos() {
         setPartidosFiltrados(partidosMezclados);
       } else {
         const filtrados = partidos.filter(p => p.club === club);
-        setPartidosFiltrados(filtrados);
+        const partidosMezclados = filtrados.sort(() => 0.5 - Math.random());
+        setPartidosFiltrados(partidosMezclados);
       }
     };
 
     return (
-      <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="flex items-center justify-center p-2">
         <div className="bg-white/10 backdrop-blur-md border border-green-400/30 rounded-2xl p-6 max-w-md w-full text-center">
           <h1 className="text-2xl font-bold text-green-300 mb-4">Selecciona un club</h1>
           <div className="grid grid-cols-2 gap-4 mb-4">
@@ -101,7 +102,7 @@ export default function JuegoPartidos() {
 
   if (juegoTerminado) {
     return (
-      <div className="min-h-screen flex items-center justify-center p-4">
+      <div className="flex items-center justify-center p-4">
         <div className="bg-white/10 backdrop-blur-md border border-green-400/30 rounded-2xl p-8 text-center max-w-md w-full">
           <h2 className="text-3xl font-bold text-green-300 mb-4">🏆 Joc Completat!</h2>
           <p className="text-xl text-white mb-2">Puntuació Final:</p>
@@ -118,7 +119,7 @@ export default function JuegoPartidos() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center p-4">
+    <div className="flex items-center justify-center p-4">
       <div className="bg-white/10 backdrop-blur-md border border-green-400/30 rounded-2xl p-6 max-w-2xl w-full">
         {/* Header */}
         <div className="text-center mb-6">
@@ -130,6 +131,7 @@ export default function JuegoPartidos() {
         {mostrarRespuesta ? (
           <div className="text-center">
             <div className="flex items-center justify-center gap-4 mb-4">
+                
               <img src={partido.escudoLocal} alt="Local" className="w-16 h-16 object-contain" />
               <span className="text-4xl font-bold text-white">{partido.resultado}</span>
               <img src={partido.escudoVisitante} alt="Visitante" className="w-16 h-16 object-contain" />
@@ -137,9 +139,20 @@ export default function JuegoPartidos() {
             <p className="text-2xl text-green-300 font-bold mb-2">
               {respuestaSeleccionada === partido.resultado ? "¡Correcte!" : "Resposta correcta:"}
             </p>
-            <p className="text-xl text-white">{partido.club} vs {partido.rival}</p>
-            {respuestaSeleccionada === partido.resultado && (
-              <p className="text-lg text-green-300 mt-2">+{puntosDisponibles[fase]} punts!</p>
+            {partido.local ? (
+              <>
+                <p className="text-xl text-white">{partido.club} vs {partido.rival}</p>
+                {respuestaSeleccionada === partido.resultado && (
+                  <p className="text-lg text-green-300 mt-2">+{puntosDisponibles[fase]} punts!</p>
+                )}
+              </>
+            ) : (
+              <>
+                <p className="text-xl text-white">{partido.rival} vs {partido.club}</p>
+                {respuestaSeleccionada === partido.resultado && (
+                  <p className="text-lg text-green-300 mt-2">+{puntosDisponibles[fase]} punts!</p>
+                )}
+              </>
             )}
           </div>
         ) : (

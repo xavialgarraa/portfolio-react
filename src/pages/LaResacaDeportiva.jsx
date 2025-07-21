@@ -14,21 +14,22 @@ const episodes = [
 
 const noticias = [
   {
-    titulo: "Lloret, Destino Deportivo",
-    fecha: "10 julio 2025",
-    resumen: "Lloret de Mar ha sido reconocido como destino deportivo oficial. Con instalaciones de alto nivel, es epicentro del deporte catalán.",
+    titulo: "Marc Siurana deja de ser entrenador del Club Bàsquet Unificat Lloret",
+    fecha: "18 julio 2025",
+    resumen: "El gran entrenador anunció su salida a través de un comunicado en las redes sociales del Club Bàsquet Lloret.",
   },
   {
-    titulo: "CF Lloret arranca pretemporada",
-    fecha: "8 julio 2025",
-    resumen: "El Club de Futbol Lloret inicia entrenamientos para la temporada 25/26 con refuerzos clave y mucha ambición.",
+    titulo: "Jordi Cantano es el nuevo primer entrenador de la Juventus Lloret",
+    fecha: "15 julio 2025",
+    resumen: "El nuevo míster ya ha empezado sus primeras sesiones de entrenamiento con el equipo senior.",
   },
   {
-    titulo: "El Club de Hockey U16 gana torneo",
-    fecha: "5 julio 2025",
-    resumen: "Los jóvenes del Club Hoquei Lloret se coronan campeones del torneo regional celebrado en Blanes.",
+    titulo: "¿Seguirá Lucho en la Juventus Lloret?",
+    fecha: "12 julio 2025",
+    resumen: "El delantero uruguayo, goleador en temporadas anteriores, sigue en duda sobre su continuidad en el club.",
   },
 ];
+
 
 function Episodios({ episodes }) {
   return (
@@ -227,6 +228,81 @@ function Footer() {
   );
 }
 
+import triviaCover from "../assets/juegos/trivia-cover.png";
+import partidosCover from "../assets/juegos/partidos-cover.png";
+import fantasyCover from "../assets/juegos/fantasy-cover.png";
+import { ArrowLeft } from "lucide-react";
+
+
+export default function Juegos() {
+  const [juegoActivo, setJuegoActivo] = useState(null);
+
+  const iniciarJuego = (nombre) => {
+    setJuegoActivo(nombre);
+  };
+
+  const volver = () => {
+    setJuegoActivo(null);
+  };
+
+  return (
+    <section className="px-4 py-12 max-w-5xl mx-auto text-white">
+      <h2 className="text-3xl font-bold mb-10 text-center uppercase tracking-wider text-lime-300">
+        Juegos de La Resaca Deportiva
+      </h2>
+
+      {!juegoActivo && (
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div onClick={() => iniciarJuego("trivia")} className="cursor-pointer hover:scale-105 transition">
+            <img src={triviaCover} alt="Trivial Lloretenc" className="rounded-xl shadow-lg border border-lime-400" />
+            <p className="mt-2 text-center text-lime-300 font-semibold">Trivial Lloretenc</p>
+          </div>
+          <div onClick={() => iniciarJuego("partidos")} className="cursor-pointer hover:scale-105 transition">
+            <img src={partidosCover} alt="Juego de Partidos" className="rounded-xl shadow-lg border border-lime-400" />
+            <p className="mt-2 text-center text-lime-300 font-semibold">Juego de Partidos</p>
+          </div>
+          <div className="opacity-60">
+            <img src={fantasyCover} alt="Lloret Fantasy" className="rounded-xl shadow-lg border border-dashed border-lime-400" />
+            <p className="mt-2 text-center text-lime-400 italic">Lloret Fantasy (Próximamente)</p>
+          </div>
+        </div>
+      )}
+
+      
+    {juegoActivo === "trivia" && (
+      <div>
+        <div className="text-right mb-4">
+          <button
+            onClick={volver}
+            className="inline-flex items-center gap-1 text-sm text-lime-300 hover:text-white hover:gap-2 transition-all duration-300"
+          >
+            <ArrowLeft size={16} />
+            Volver
+          </button>
+        </div>
+        <Trivia preguntas={preguntas} />
+      </div>
+    )}
+
+    {juegoActivo === "partidos" && (
+      <div>
+        <div className="text-right mb-4">
+          <button
+            onClick={volver}
+            className="inline-flex items-center gap-1 text-sm text-lime-300 hover:text-white hover:gap-2 transition-all duration-300"
+          >
+            <ArrowLeft size={16} />
+            Volver
+          </button>
+        </div>
+        <JuegoPartidos />
+      </div>
+    )}
+    </section>
+  );
+}
+
+
 export function LaResacaDeportiva() {
   return (
     <div className="bg-[#0f0f0f] text-lime-300 min-h-screen font-sans leading-relaxed">
@@ -243,8 +319,7 @@ export function LaResacaDeportiva() {
 
       <Episodios episodes={episodes} />
       <Noticias noticias={noticias} />
-      <Trivia preguntas={preguntas} />
-      <JuegoPartidos />
+      <Juegos />
       <Footer />
     </div>
   );
