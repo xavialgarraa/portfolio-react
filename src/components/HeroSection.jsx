@@ -45,7 +45,7 @@ export const HeroSection = () => {
                 href="#projects"
                 className="cosmic-button"
                 >
-                Descobreix els meus projectes
+                {t.button}
                 </a>
             </div>
         </div>

@@ -22,10 +22,11 @@ export const translationsProjects = {
         link: "https://github.com/xavialgarraa",
       },
       {
-        title: "Gràfics i marcador en directe",
+        title: "Periodista local: La Resaca Deportiva",
         description:
-          "Desenvolupament i ús de gràfics personalitzats per a OBS Studio. Marcador esportiu connectat a temps real per a retransmissions.",
-        type: "Projecte tècnic + audiovisual",
+          "Presentador i redactor d’un programa setmanal sobre l’actualitat esportiva comarcal. Difusió en directe i per xarxes socials. Web en el link de sota.",
+        link: "/portfolio-react/axprod/laresacadeportiva",
+        type: "Comunicació esportiva",
       },
       {
         title: "Inici de pràctiques TIC al CPNL",
@@ -71,11 +72,13 @@ export const translationsProjects = {
         link: "https://github.com/xavialgarraa",
       },
       {
-        title: "Gráficos y marcador en directo",
+        title: "Periodista local: La Resaca Deportiva",
         description:
-          "Desarrollo y uso de gráficos personalizados para OBS Studio. Marcador deportivo conectado en tiempo real para retransmisiones.",
-        type: "Proyecto técnico + audiovisual",
+          "Presentador y redactor de un programa semanal sobre la actualidad deportiva comarcal. Difusión en directo y por redes sociales. Web en el link de abajo.",
+        link: "/portfolio-react/axprod/laresacadeportiva",
+        type: "Comunicación deportiva",
       },
+
       {
         title: "Inicio de prácticas TIC en el CPNL",
         description:
@@ -106,11 +109,11 @@ export const translationsProjects = {
     linkDemo: "Watch demo",
     items: [
       {
-        title: "Live Broadcast (Football)",
+        title: "Live Sports Broadcast",
         description:
           "Technical production of football matches with cameras, graphics, audio, and commentary. Experience with OBS and live streaming management in the Catalan First Division.",
         type: "Sports production",
-        link: "https://www.youtube.com/watch?v=demo",
+        link: "https://www.youtube.com/live/KL7PQu_egUw?si=aoiUQ7PY_Z7ZqsXu",
       },
       {
         title: "UPF Projects (C++, Java, Python)",
@@ -120,10 +123,11 @@ export const translationsProjects = {
         link: "https://github.com/xavialgarraa",
       },
       {
-        title: "Live Graphics and Scoreboard",
+        title: "Local Journalist: La Resaca Deportiva",
         description:
-          "Development and use of custom graphics for OBS Studio. Real-time connected sports scoreboard for broadcasts.",
-        type: "Technical + audiovisual project",
+          "Host and writer of a weekly show covering local sports news. Broadcast live and shared on social media. Website available at the link below.",
+        link: "/portfolio-react/axprod/laresacadeportiva",
+        type: "Sports communication",
       },
       {
         title: "TIC Internship at CPNL",
