@@ -4,6 +4,7 @@ import { AxProd } from "./pages/AxProd";
 import { NotFound } from "./pages/NotFound";
 import { LanguageProvider } from "./context/LanguageContext";
 import { LaResacaDeportiva } from "./pages/LaResacaDeportiva";
+import { Noticia } from "./pages/Noticia";
 
 
 function App() {
@@ -17,6 +18,8 @@ function App() {
           {/* Ruta per AxProd */}
           <Route path="/axprod" element={<AxProd />} />
           <Route path="/axprod/laresacadeportiva" element={<LaResacaDeportiva />} />
+          <Route path="/axprod/laresacadeportiva/noticia/:id" element={<Noticia />} />
+
           {/* Ruta per 404 */}
           <Route path="*" element={<NotFound />} />
         </Routes>

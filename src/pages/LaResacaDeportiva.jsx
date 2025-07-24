@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import preguntas from "../js/preguntas.js";
 import LogoDark from "../assets/logo-blanco.png";
 import JuegoPartidos from "../components/JuegoPartidos";
+import { Link } from "react-router-dom";
 import PiedraPapelTijera from "../components/PiedraPapelTijera.jsx";
 
 
@@ -13,24 +14,53 @@ const episodes = [
   { id: "WxB9f5Fi_-w", title: "Episodio 3 – Semana 22-23 Feb", date: "09/02/2025" },
 ];
 
-const noticias = [
-  {
-    titulo: "Marc Siurana deja de ser entrenador del Club Bàsquet Unificat Lloret",
-    fecha: "18 julio 2025",
-    resumen: "Su salida llegó a los fans a través de un comunicado en las redes sociales del Club Bàsquet Lloret.",
-  },
-  {
-    titulo: "Jordi Cantano es el nuevo primer entrenador de la Juventus Lloret",
-    fecha: "15 julio 2025",
-    resumen: "El nuevo míster ya ha empezado sus primeras sesiones de entrenamiento con el equipo senior.",
-  },
-  {
-    titulo: "¿Seguirá Lucho en la Juventus Lloret?",
-    fecha: "12 julio 2025",
-    resumen: "El delantero uruguayo, goleador en temporadas anteriores, sigue en duda sobre su continuidad en el club.",
-  },
-];
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebaseConfig"; // Asegúrate que la ruta sea correcta
 
+function Noticias() {
+  const [noticias, setNoticias] = useState([]);
+
+  useEffect(() => {
+    const fetchNoticias = async () => {
+      const noticiasCol = collection(db, "noticias");
+      const noticiasSnapshot = await getDocs(noticiasCol);
+      const noticiasList = noticiasSnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data()
+      }));
+      setNoticias(noticiasList);
+    };
+
+    fetchNoticias();
+  }, []);
+
+
+  return (
+      <section className="bg-[#111111] px-4 py-12">
+        <h2 className="text-3xl font-bold mb-6 text-center tracking-wide uppercase text-lime-300">Noticias Deportivas</h2>
+        <ul className="space-y-6 max-w-5xl mx-auto">
+          {noticias.map((n, i) => (
+            <li key={i}>
+              <Link
+                to={`/axprod/laresacadeportiva/noticia/${n.id || n.slug || i}`} // idealmente usa n.id del doc
+                className="block bg-[#1c1c1e] border border-lime-400 p-6 rounded-xl hover:bg-lime-800/20 transition shadow-md"
+              >
+                <h3 className="text-xl font-semibold text-white">{n.titulo}</h3>
+                <p className="text-sm text-lime-400">
+                  {n.fecha?.toDate?.().toLocaleDateString("es-ES", {
+                    day: "2-digit",
+                    month: "2-digit",
+                    year: "numeric"
+                  })}
+                </p>
+                <p className="text-gray-200 mt-2">{n.resumen}</p>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </section>
+    );
+}
 
 function Episodios({ episodes }) {
   return (
@@ -71,25 +101,7 @@ function Episodios({ episodes }) {
   );
 }
 
-function Noticias({ noticias }) {
-  return (
-    <section className="bg-[#111111] px-4 py-12">
-      <h2 className="text-3xl font-bold mb-6 text-center tracking-wide uppercase text-lime-300">Noticias Deportivas</h2>
-      <ul className="space-y-6 max-w-5xl mx-auto">
-        {noticias.map((n, i) => (
-          <li
-            key={i}
-            className="bg-[#1c1c1e] border border-lime-400 p-6 rounded-xl hover:bg-lime-800/20 transition shadow-md"
-          >
-            <h3 className="text-xl font-semibold text-white">{n.titulo}</h3>
-            <p className="text-sm text-lime-400">{n.fecha}</p>
-            <p className="text-gray-200 mt-2">{n.resumen}</p>
-          </li>
-        ))}
-      </ul>
-    </section>
-  );
-}
+
 
 const obtenerPreguntasAleatorias = (preguntas, cantidad = 10) => {
   return preguntas.sort(() => 0.5 - Math.random()).slice(0, cantidad);
@@ -342,7 +354,7 @@ export function LaResacaDeportiva() {
       </header>
 
       <Episodios episodes={episodes} />
-      <Noticias noticias={noticias} />
+      <Noticias />
       <Juegos />
       <Footer />
     </div>
