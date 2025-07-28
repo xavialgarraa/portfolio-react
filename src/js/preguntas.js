@@ -145,8 +145,8 @@ const preguntas = [
   },
   {
     pregunta: "¿Qué instalación usaba el CB Lloret en sus inicios?",
-    opciones: ['Colegio Esteban Carlos', 'Palau Blaugrana', 'Pavelló Municipal', 'Ciutat Esportiva'],
-    correcta: "Colegio Esteban Carlos",
+    opciones: ['Escola Esteve Carles', 'Palau Blaugrana', 'Pavelló Municipal', 'Ciutat Esportiva'],
+    correcta: "Escola Esteve Carles",
     equipo: "Club Bàsquet Lloret"
   },
   {
