@@ -9,9 +9,9 @@ import PiedraPapelTijera from "../components/PiedraPapelTijera.jsx";
 
 
 const episodes = [
-  { id: "xQpzsf3CK4Q", title: "Episodio 5 – Semana 8-9 Mar", date: "23/02/2025" },
-  { id: "AV9PfkUjIqM", title: "Episodio 4 – Semana 1-2 Mar", date: "16/02/2025" },
-  { id: "WxB9f5Fi_-w", title: "Episodio 3 – Semana 22-23 Feb", date: "09/02/2025" },
+  { id: "Vzay0bvSing", title: "Mercato II", date: "15/07/2025" },
+  { id: "VZ7Zf7qQEAg", title: "Mercato – 1A Edición", date: "16/06/2025" },
+  { id: "sabhcQm_n4g", title: "Episodio 12 – Semana 10-11 May", date: "14/05/2025" },
 ];
 
 import { collection, getDocs } from "firebase/firestore";
