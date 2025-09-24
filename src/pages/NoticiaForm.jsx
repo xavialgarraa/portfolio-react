@@ -129,25 +129,92 @@ export function NoticiaForm() {
         </h1>
 
         <form onSubmit={handleSubmit} className="space-y-4">
-          {/* campos del formulario igual que antes */}
-          <input
-            type="text"
-            name="Titulo"
-            placeholder="Título"
-            value={formData.Titulo}
-            onChange={handleChange}
-            required
-            className="w-full p-3 rounded-lg bg-[#1c1c1e] border border-lime-400"
-          />
-          {/* resto de inputs igual que tu código original */}
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full bg-lime-400 hover:bg-lime-300 text-black font-bold py-3 rounded-lg transition"
-          >
-            {loading ? "Guardando..." : id ? "Actualizar Noticia" : "Crear Noticia"}
-          </button>
-        </form>
+        <input
+          type="text"
+          name="Titulo"
+          placeholder="Título"
+          value={formData.Titulo}
+          onChange={handleChange}
+          required
+          className="w-full p-3 rounded-lg bg-[#1c1c1e] border border-lime-400"
+        />
+
+        <textarea
+          name="Resumen"
+          placeholder="Resumen breve"
+          value={formData.Resumen}
+          onChange={handleChange}
+          required
+          rows="3"
+          className="w-full p-3 rounded-lg bg-[#1c1c1e] border border-lime-400"
+        />
+
+        <textarea
+          name="1-parrafo"
+          placeholder="Primer párrafo"
+          value={formData["1-parrafo"]}
+          onChange={handleChange}
+          required
+          rows="4"
+          className="w-full p-3 rounded-lg bg-[#1c1c1e] border border-lime-400"
+        />
+
+        <textarea
+          name="2-parrafo"
+          placeholder="Segundo párrafo"
+          value={formData["2-parrafo"]}
+          onChange={handleChange}
+          required
+          rows="4"
+          className="w-full p-3 rounded-lg bg-[#1c1c1e] border border-lime-400"
+        />
+
+        <textarea
+          name="3-parrafo"
+          placeholder="Tercer párrafo"
+          value={formData["3-parrafo"]}
+          onChange={handleChange}
+          required
+          rows="4"
+          className="w-full p-3 rounded-lg bg-[#1c1c1e] border border-lime-400"
+        />
+
+        <input
+          type="text"
+          name="autor"
+          placeholder="Autor"
+          value={formData.autor}
+          onChange={handleChange}
+          className="w-full p-3 rounded-lg bg-[#1c1c1e] border border-lime-400"
+        />
+
+        <input
+          type="text"
+          name="foto-1"
+          placeholder="URL de la primera foto"
+          value={formData["foto-1"]}
+          onChange={handleChange}
+          className="w-full p-3 rounded-lg bg-[#1c1c1e] border border-lime-400"
+        />
+
+        <input
+          type="text"
+          name="foto-2"
+          placeholder="URL de la segunda foto"
+          value={formData["foto-2"]}
+          onChange={handleChange}
+          className="w-full p-3 rounded-lg bg-[#1c1c1e] border border-lime-400"
+        />
+
+        <button
+          type="submit"
+          disabled={loading}
+          className="w-full bg-lime-400 hover:bg-lime-300 text-black font-bold py-3 rounded-lg transition"
+        >
+          {loading ? "Guardando..." : id ? "Actualizar Noticia" : "Crear Noticia"}
+        </button>
+      </form>
+
       </motion.div>
     </main>
   );
