@@ -5,6 +5,7 @@ import { NotFound } from "./pages/NotFound";
 import { LanguageProvider } from "./context/LanguageContext";
 import { LaResacaDeportiva } from "./pages/LaResacaDeportiva";
 import { Noticia } from "./pages/Noticia";
+import { NoticiaForm } from "./pages/NoticiaForm";
 
 
 function App() {
@@ -19,6 +20,9 @@ function App() {
           <Route path="/axprod" element={<AxProd />} />
           <Route path="/axprod/laresacadeportiva" element={<LaResacaDeportiva />} />
           <Route path="/axprod/laresacadeportiva/noticia/:id" element={<Noticia />} />
+
+          <Route path="/axprod/laresacadeportiva/nueva" element={<NoticiaForm />} />
+          <Route path="/axprod/laresacadeportiva/editar/:id" element={<NoticiaForm />} />
 
           {/* Ruta per 404 */}
           <Route path="*" element={<NotFound />} />

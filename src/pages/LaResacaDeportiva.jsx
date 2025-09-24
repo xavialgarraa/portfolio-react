@@ -15,52 +15,98 @@ const episodes = [
 ];
 
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "../firebaseConfig"; // Asegúrate que la ruta sea correcta
+import { db } from "../firebaseConfig"; 
+import { query, orderBy } from "firebase/firestore";
 
-function Noticias() {
+export function Noticias() {
   const [noticias, setNoticias] = useState([]);
+  const [filtroTexto, setFiltroTexto] = useState("");
+  const [filtroFecha, setFiltroFecha] = useState("");
 
   useEffect(() => {
     const fetchNoticias = async () => {
-      const noticiasCol = collection(db, "noticias");
-      const noticiasSnapshot = await getDocs(noticiasCol);
-      const noticiasList = noticiasSnapshot.docs.map((doc) => ({
-        id: doc.id,
-        ...doc.data()
-      }));
-      setNoticias(noticiasList);
+      try {
+        const noticiasCol = collection(db, "noticias");
+        let q = query(noticiasCol, orderBy("fecha", "desc")); // ordenar por fecha descendente
+
+        const snapshot = await getDocs(q);
+        const noticiasList = snapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setNoticias(noticiasList);
+      } catch (err) {
+        console.error("Error cargando noticias:", err);
+      }
     };
 
     fetchNoticias();
   }, []);
 
+  // Filtrado en el cliente
+  const noticiasFiltradas = noticias.filter((n) => {
+    const matchesTexto =
+      n.Titulo?.toLowerCase().includes(filtroTexto.toLowerCase()) ||
+      n.Resumen?.toLowerCase().includes(filtroTexto.toLowerCase());
+    const matchesFecha = filtroFecha
+      ? n.fecha?.toDate?.().toISOString().slice(0, 10) === filtroFecha
+      : true;
+
+    return matchesTexto && matchesFecha;
+  });
 
   return (
-      <section className="bg-[#111111] px-4 py-12">
-        <h2 className="text-3xl font-bold mb-6 text-center tracking-wide uppercase text-lime-300">Noticias Deportivas</h2>
-        <ul className="space-y-6 max-w-5xl mx-auto">
-          {noticias.map((n, i) => (
-            <li key={i}>
-              <Link
-                to={`/axprod/laresacadeportiva/noticia/${n.id || n.slug || i}`} // idealmente usa n.id del doc
-                className="block bg-[#1c1c1e] border border-lime-400 p-6 rounded-xl hover:bg-lime-800/20 transition shadow-md"
-              >
-                <h3 className="text-xl font-semibold text-white">{n.titulo}</h3>
+    <section className="bg-[#111111] px-4 py-12">
+      <h2 className="text-3xl font-bold mb-6 text-center tracking-wide uppercase text-lime-300">
+        Noticias Deportivas
+      </h2>
+
+      {/* Buscador */}
+      <div className="max-w-3xl mx-auto flex flex-col sm:flex-row gap-4 mb-8">
+        <input
+          type="text"
+          placeholder="Buscar por título o resumen..."
+          className="flex-1 p-3 rounded-lg bg-[#1c1c1e] border border-lime-400 text-white"
+          value={filtroTexto}
+          onChange={(e) => setFiltroTexto(e.target.value)}
+        />
+        <input
+          type="date"
+          className="p-3 rounded-lg bg-[#1c1c1e] border border-lime-400 text-white"
+          value={filtroFecha}
+          onChange={(e) => setFiltroFecha(e.target.value)}
+        />
+      </div>
+
+      <ul className="space-y-6 max-w-5xl mx-auto">
+        {noticiasFiltradas.map((n) => (
+          <li key={n.id}>
+            <Link
+              to={`/axprod/laresacadeportiva/noticia/${n.id}`}
+              className="block bg-[#1c1c1e] border border-lime-400 p-6 rounded-xl hover:bg-lime-800/20 transition shadow-md"
+            >
+              <h3 className="text-xl font-semibold text-white">{n.Titulo}</h3>
+              {n.fecha && (
                 <p className="text-sm text-lime-400">
-                  {n.fecha?.toDate?.().toLocaleDateString("es-ES", {
+                  {n.fecha.toDate().toLocaleDateString("es-ES", {
                     day: "2-digit",
                     month: "2-digit",
-                    year: "numeric"
+                    year: "numeric",
                   })}
                 </p>
-                <p className="text-gray-200 mt-2">{n.resumen}</p>
-              </Link>
-            </li>
-          ))}
-        </ul>
-      </section>
-    );
+              )}
+              <p className="text-gray-200 mt-2">{n.Resumen}</p>
+            </Link>
+          </li>
+        ))}
+        {noticiasFiltradas.length === 0 && (
+          <p className="text-center text-gray-400 mt-6">No se encontraron noticias.</p>
+        )}
+      </ul>
+    </section>
+  );
 }
+
 
 function Episodios({ episodes }) {
   return (
