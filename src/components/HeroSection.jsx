@@ -7,8 +7,12 @@ import { useLanguage } from "../context/LanguageContext";
 /* ─────────────────────────────────────────────────────────────
    PARTICLE CANVAS — usa var(--primary) del tema Tailwind
 ───────────────────────────────────────────────────────────── */
+/* ─────────────────────────────────────────────────────────────
+   PARTICLE CANVAS — Adaptativo y con menos densidad de líneas
+───────────────────────────────────────────────────────────── */
 function ParticleField() {
   const ref = useRef(null);
+  
   useEffect(() => {
     const canvas = ref.current;
     const ctx = canvas.getContext("2d");
@@ -17,26 +21,52 @@ function ParticleField() {
     // Leer el color primario del tema al momento de montar
     const primaryRaw = getComputedStyle(document.documentElement)
       .getPropertyValue("--primary").trim() || "262 83% 67%";
-    // Convertir hsl string a rgba usable en canvas
     const toRgba = (hsl, a) => `hsla(${hsl}, ${a})`;
+
+    let connectionDistance = 90; // Distancia base reducida (antes 105)
+
+    // Función para crear las partículas según el tamaño de la pantalla
+    const initParticles = () => {
+      pts = [];
+      let numParticles = 50; // Escritorio: reducidas de 70 a 50
+
+      if (W < 768) {
+        // Modo Móvil
+        numParticles = 18;
+        connectionDistance = 65; 
+      } else if (W < 1024) {
+        // Modo Tablet
+        numParticles = 30;
+        connectionDistance = 80;
+      } else {
+        // Modo Escritorio
+        numParticles = 50;
+        connectionDistance = 95;
+      }
+
+      for (let i = 0; i < numParticles; i++) {
+        pts.push({
+          x: Math.random() * W, y: Math.random() * H,
+          vx: (Math.random() - 0.5) * 0.3,
+          vy: (Math.random() - 0.5) * 0.3,
+          r: Math.random() * 1.4 + 0.3,
+        });
+      }
+    };
 
     const resize = () => {
       W = canvas.width = canvas.offsetWidth;
       H = canvas.height = canvas.offsetHeight;
+      initParticles(); // Reiniciamos las partículas al cambiar el tamaño
     };
+    
     resize();
     window.addEventListener("resize", resize);
 
-    for (let i = 0; i < 70; i++)
-      pts.push({
-        x: Math.random() * W, y: Math.random() * H,
-        vx: (Math.random() - 0.5) * 0.3,
-        vy: (Math.random() - 0.5) * 0.3,
-        r: Math.random() * 1.4 + 0.3,
-      });
-
     const draw = () => {
       ctx.clearRect(0, 0, W, H);
+      
+      // Dibujar puntos
       pts.forEach(p => {
         p.x = (p.x + p.vx + W) % W;
         p.y = (p.y + p.vy + H) % H;
@@ -45,24 +75,34 @@ function ParticleField() {
         ctx.fillStyle = toRgba(primaryRaw, 0.5);
         ctx.fill();
       });
-      for (let i = 0; i < pts.length; i++)
+      
+      // Dibujar líneas
+      for (let i = 0; i < pts.length; i++) {
         for (let j = i + 1; j < pts.length; j++) {
           const dx = pts[i].x - pts[j].x, dy = pts[i].y - pts[j].y;
           const d = Math.sqrt(dx * dx + dy * dy);
-          if (d < 105) {
+          
+          if (d < connectionDistance) {
             ctx.beginPath();
             ctx.moveTo(pts[i].x, pts[i].y);
             ctx.lineTo(pts[j].x, pts[j].y);
-            ctx.strokeStyle = toRgba(primaryRaw, 0.09 * (1 - d / 105));
+            // La opacidad de la línea ahora se calcula en base a la distancia dinámica
+            ctx.strokeStyle = toRgba(primaryRaw, 0.08 * (1 - d / connectionDistance));
             ctx.lineWidth = 0.5;
             ctx.stroke();
           }
         }
+      }
       raf = requestAnimationFrame(draw);
     };
+    
     draw();
-    return () => { cancelAnimationFrame(raf); window.removeEventListener("resize", resize); };
+    return () => { 
+      cancelAnimationFrame(raf); 
+      window.removeEventListener("resize", resize); 
+    };
   }, []);
+
   return (
     <canvas ref={ref} style={{ position:"absolute", inset:0, width:"100%", height:"100%", zIndex:1 }} />
   );
@@ -651,11 +691,11 @@ export const HeroSection = () => {
               style={{ animation: "wUp 0.8s 0.95s both" }}
             >
               <div className="hctr">
-                <span className="hctr-n">42<sup>+</sup></span>
+                <span className="hctr-n">10<sup>+</sup></span>
                 <span className="hctr-l">Projects</span>
               </div>
               <div className="hctr">
-                <span className="hctr-n">7<sup>yr</sup></span>
+                <span className="hctr-n">1<sup>yr</sup></span>
                 <span className="hctr-l">Experience</span>
               </div>
               <div className="hctr">

@@ -12,7 +12,7 @@ export const translationsProjects = {
         description:
           "Realització tècnica de partits amb càmeres, gràfics, àudio i narració. Experiència amb OBS i gestió de directes de la Primera Catalana.",
         type: "Producció esportiva",
-        link: "https://www.youtube.com/watch?v=demo",
+        link: "https://www.youtube.com/live/KL7PQu_egUw?si=aoiUQ7PY_Z7ZqsXu",
       },
       {
         title: "Projectes UPF (C++, Java, Python)",
@@ -25,7 +25,7 @@ export const translationsProjects = {
         title: "Periodista local: La Resaca Deportiva",
         description:
           "Presentador i redactor d’un programa setmanal sobre l’actualitat esportiva comarcal. Difusió en directe i per xarxes socials. Web en el link de sota.",
-        link: "/portfolio-react/axprod/laresacadeportiva",
+        link: "https://laresacadeportiva.com",
         type: "Comunicació esportiva",
       },
       {
@@ -62,7 +62,7 @@ export const translationsProjects = {
         description:
           "Realización técnica de partidos con cámaras, gráficos, audio y narración. Experiencia con OBS y gestión de directos en la Primera Catalana.",
         type: "Producción deportiva",
-        link: "https://www.youtube.com/watch?v=demo",
+        link: "https://www.youtube.com/live/KL7PQu_egUw?si=aoiUQ7PY_Z7ZqsXu",
       },
       {
         title: "Proyectos UPF (C++, Java, Python)",
@@ -75,7 +75,7 @@ export const translationsProjects = {
         title: "Periodista local: La Resaca Deportiva",
         description:
           "Presentador y redactor de un programa semanal sobre la actualidad deportiva comarcal. Difusión en directo y por redes sociales. Web en el link de abajo.",
-        link: "/portfolio-react/axprod/laresacadeportiva",
+        link: "https://laresacadeportiva.com",
         type: "Comunicación deportiva",
       },
 
@@ -126,7 +126,7 @@ export const translationsProjects = {
         title: "Local Journalist: La Resaca Deportiva",
         description:
           "Host and writer of a weekly show covering local sports news. Broadcast live and shared on social media. Website available at the link below.",
-        link: "/portfolio-react/axprod/laresacadeportiva",
+        link: "https://laresacadeportiva.com",
         type: "Sports communication",
       },
       {

@@ -14,7 +14,7 @@ export const Footer = () => {
         {/* Xarxes socials */}
         <div className="flex items-center gap-4">
           <a
-            href="https://www.linkedin.com/in/xavialgarra"
+            href="https://www.linkedin.com/in/xavialgarraa"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -23,7 +23,7 @@ export const Footer = () => {
             <Linkedin className="w-5 h-5" />
           </a>
           <a
-            href="https://github.com/xavialgarra"
+            href="https://github.com/xavialgarraa"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
@@ -41,7 +41,7 @@ export const Footer = () => {
             <Instagram className="w-5 h-5" />
           </a>
           <a
-            href="https://wa.me/34611223344"
+            href="https://wa.me/34627503320"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="WhatsApp"
