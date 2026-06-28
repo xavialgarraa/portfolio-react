@@ -1,24 +1,23 @@
 export const translationshero = {
   ca: {
     name: "Xavi Algarra",
-    title: "Estudiant d'Enginyeria Informàtica a la UPF",
+    title: "Enginyer informàtic · IA i visió per computador",
     description:
-      "Desenvolupo eines digitals que combinen tecnologia, comunicació i esport. Especial interès en el desenvolupament web, la intel·ligència artificial aplicada i l’audiovisual esportiu.",
+      "Construeixo programari a la intersecció entre IA, visió per computador i esport. Recentment graduat per la UPF Barcelona; obert a oportunitats júnior de desenvolupament, dades i IA aplicada.",
     button: "Descobreix els meus projectes",
   },
   es: {
     name: "Xavi Algarra",
-    title: "Estudiante de Ingeniería Informática en la UPF",
+    title: "Ingeniero informático · IA y visión por computador",
     description:
-      "Desarrollo herramientas digitales que combinan tecnología, comunicación y deporte. Especial interés en el desarrollo web, la inteligencia artificial aplicada y el audiovisual deportivo.",
+      "Construyo software en la intersección entre IA, visión por computador y deporte. Recién graduado por la UPF Barcelona; abierto a oportunidades junior de desarrollo, datos e IA aplicada.",
     button: "Descubre mis proyectos",
   },
   en: {
     name: "Xavi Algarra",
-    title: "Computer Engineering Student at UPF",
+    title: "Computer Engineer · AI & Computer Vision",
     description:
-      "I build digital tools that combine technology, communication, and sports. Especially interested in web development, applied AI, and sports audiovisuals.",
+      "I build software at the intersection of AI, computer vision and sports. Recent UPF Barcelona graduate; open to junior roles in development, data and applied AI.",
     button: "Explore my projects",
   },
 };
-

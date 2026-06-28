@@ -1,84 +1,90 @@
 export const translationsAboutMe = {
   ca: {
     heading: "Sobre mi",
-    subtitle: "Desenvolupador i creador digital",
+    subtitle: "Enginyer informàtic per la UPF Barcelona",
     paragraph1:
-      "Sóc estudiant d’Enginyeria Informàtica a la UPF i combino el desenvolupament de programari amb la comunicació audiovisual esportiva. M'interessa especialment la creació d'eines web interactives, la intel·ligència artificial aplicada i els projectes amb impacte real en comunitats locals.",
+      "Sóc Xavi, enginyer informàtic per la Universitat Pompeu Fabra (Barcelona). Em moc a la intersecció entre programari, visió per computador i esport — una combinació que ve de compaginar la carrera amb tres anys treballant com a operador de grafismes i realitzador per a Fitel Televisió.",
     paragraph2:
-      "Actualment estic treballant en el meu TFG i buscant pràctiques per continuar aprenent i aportar valor en equips tecnològics. Sempre busco combinar creativitat, eficiència i claredat en tot allò que construeixo.",
+      "El meu TFG ha estat una pipeline completa d'IA aplicada a l'anàlisi tàctica del futbol amateur. Gaudeixo especialment amb projectes on puc pensar en el problema abans que en la tecnologia, i construir coses que resolguin necessitats reals d'usuaris reals.",
+    paragraph3:
+      "Actualment obert a oportunitats júnior de desenvolupament, dades o IA aplicada a Barcelona o remot.",
     contact: "Contacta amb mi",
     downloadCV: "Descarrega el CV",
     skills: {
       web: {
-        title: "Desenvolupament Web",
+        title: "Desenvolupament de programari",
         description:
-          "Tecnologies com React, Tailwind i Python per construir interfícies modernes.",
+          "React, Python, Node.js i Tailwind per construir aplicacions web modernes i robustes.",
       },
       streaming: {
-        title: "Streaming i comunicació",
+        title: "Visió per computador i IA",
         description:
-          "Experiència audiovisual esportiva, narració i realització en temps real.",
+          "Pipelines de detecció, seguiment i anàlisi amb YOLO, OpenCV i scikit-learn aplicades a esport real.",
       },
       project: {
-        title: "Gestió de projectes",
+        title: "Producció audiovisual esportiva",
         description:
-          "Coordinació d’equips en casals, produccions en directe i projectes universitaris.",
+          "Tres anys de retransmissió en directe, grafismes i narració per a Fitel Televisió.",
       },
     },
   },
 
   es: {
     heading: "Sobre mí",
-    subtitle: "Desarrollador y creador digital",
+    subtitle: "Ingeniero informático por la UPF Barcelona",
     paragraph1:
-      "Soy estudiante de Ingeniería Informática en la UPF y combino el desarrollo de software con la comunicación audiovisual deportiva. Me interesa especialmente la creación de herramientas web interactivas, la inteligencia artificial aplicada y los proyectos con impacto real en comunidades locales.",
+      "Soy Xavi, ingeniero informático por la Universitat Pompeu Fabra (Barcelona). Me muevo en la intersección entre software, visión por computador y deporte — una combinación que viene de compaginar la carrera con tres años trabajando como operador de grafismos y retransmisor para Fitel Televisión.",
     paragraph2:
-      "Actualmente estoy trabajando en mi TFG y buscando prácticas para seguir aprendiendo y aportar valor en equipos tecnológicos. Siempre busco combinar creatividad, eficiencia y claridad en todo lo que construyo.",
+      "Mi TFG ha sido una pipeline completa de IA aplicada al análisis táctico de fútbol amateur. Disfruto especialmente con proyectos donde puedo pensar en el problema antes que en la tecnología, y construir cosas que resuelvan necesidades reales de usuarios reales.",
+    paragraph3:
+      "Actualmente abierto a oportunidades junior de dev, datos o IA aplicada en Barcelona o remoto.",
     contact: "Contáctame",
     downloadCV: "Descargar CV",
     skills: {
       web: {
-        title: "Desarrollo Web",
+        title: "Desarrollo de software",
         description:
-          "Tecnologías como React, Tailwind y Python para construir interfaces modernas.",
+          "React, Python, Node.js y Tailwind para construir aplicaciones web modernas y robustas.",
       },
       streaming: {
-        title: "Streaming y comunicación",
+        title: "Visión por computador e IA",
         description:
-          "Experiencia audiovisual deportiva, narración y realización en tiempo real.",
+          "Pipelines de detección, seguimiento y análisis con YOLO, OpenCV y scikit-learn aplicados al deporte real.",
       },
       project: {
-        title: "Gestión de proyectos",
+        title: "Producción audiovisual deportiva",
         description:
-          "Coordinación de equipos en casales, producciones en directo y proyectos universitarios.",
+          "Tres años de retransmisión en directo, grafismos y narración para Fitel Televisión.",
       },
     },
   },
 
   en: {
     heading: "About Me",
-    subtitle: "Developer and Digital Creator",
+    subtitle: "Computer Engineer · UPF Barcelona",
     paragraph1:
-      "I am a Computer Engineering student at UPF, combining software development with sports audiovisual communication. I'm especially interested in building interactive web tools, applied artificial intelligence, and projects that create real impact in local communities.",
+      "I'm Xavi, a Computer Engineer from Universitat Pompeu Fabra (Barcelona). I work at the intersection of software, computer vision and sports — a mix shaped by three years balancing my degree with on-air work as a graphics operator and broadcaster for Fitel Televisión.",
     paragraph2:
-      "I'm currently working on my thesis and looking for internships to keep learning and contribute to tech teams. I always aim to combine creativity, efficiency, and clarity in everything I build.",
+      "My thesis was an end-to-end AI pipeline for tactical analysis of amateur football. I enjoy projects where I can think about the problem before the technology, and ship things that solve real needs for real users.",
+    paragraph3:
+      "Currently open to junior roles in dev, data or applied AI — Barcelona or remote.",
     contact: "Get in touch",
     downloadCV: "Download CV",
     skills: {
       web: {
-        title: "Web Development",
+        title: "Software development",
         description:
-          "Technologies like React, Tailwind, and Python to build modern interfaces.",
+          "React, Python, Node.js and Tailwind for building modern, robust web applications.",
       },
       streaming: {
-        title: "Streaming & Communication",
+        title: "Computer vision & AI",
         description:
-          "Sports audiovisual experience, real-time narration and production.",
+          "Detection, tracking and analysis pipelines with YOLO, OpenCV and scikit-learn applied to real sports footage.",
       },
       project: {
-        title: "Project Management",
+        title: "Sports broadcasting",
         description:
-          "Team coordination in camps, live productions, and university projects.",
+          "Three years of live broadcasting, real-time graphics and commentary for Fitel Televisión.",
       },
     },
   },
