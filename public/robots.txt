@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://xavialgarraa.github.io/portfolio-react/sitemap.xml
