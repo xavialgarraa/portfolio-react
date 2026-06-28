@@ -1,151 +1,141 @@
 export const translationsProjects = {
   ca: {
     heading: "Projectes",
-    highlight: "realitzats",
+    highlight: "destacats",
     description:
-      "Una selecció de projectes reals que combinen desenvolupament tècnic, producció esportiva i comunicació audiovisual.",
+      "Una selecció de projectes recents que combinen IA, visió per computador i desenvolupament de programari amb impacte real.",
     linkGithub: "Veure al GitHub",
     linkDemo: "Veure demostració",
+    linkWebsite: "Visitar el web",
     items: [
       {
-        title: "Retransmissió en directe (futbol)",
+        title: "Anàlisi tàctica de futbol amateur des de la càmera VEO",
+        subtitle: "Pipeline de visió per computador per a clubs de base",
+        year: "2026",
         description:
-          "Realització tècnica de partits amb càmeres, gràfics, àudio i narració. Experiència amb OBS i gestió de directes de la Primera Catalana.",
-        type: "Producció esportiva",
-        link: "https://www.youtube.com/live/KL7PQu_egUw?si=aoiUQ7PY_Z7ZqsXu",
+          "Pipeline completa de visió per computador que converteix el vídeo de la càmera VEO en anàlisi tàctica real per a clubs de futbol amateur, sense maquinari addicional ni personal tècnic especialitzat.",
+        type: "TFG · Computer Vision · Sports Analytics",
+        tags: [
+          "Python",
+          "YOLO",
+          "OpenCV",
+          "scikit-learn",
+          "Streamlit",
+          "Homografia",
+          "GLSL Shader Analysis",
+          "LLM",
+        ],
       },
       {
-        title: "Projectes UPF (C++, Java, Python)",
+        title: "Karaoke Software a mida",
+        subtitle: "Sistema de gestió de cua en temps real per a un bar local",
+        year: "2024",
         description:
-          "Desenvolupament de projectes universitaris com simuladors, aplicacions CLI i treballs de programació estructurada.",
-        type: "Acadèmic",
-        link: "https://github.com/xavialgarraa",
+          "Programari de karaoke fet a mida per a un bar local. Gestió de cua en temps real, cerca per títol i artista i control des del mòbil dels clients. En ús real.",
+        type: "Side Project · Client Real · Real-time",
+        tags: ["React", "Node.js", "WebSockets", "JavaScript", "DigitalOcean"],
       },
       {
-        title: "Periodista local: La Resaca Deportiva",
+        title: "La Resaca Deportiva",
+        subtitle: "Programa setmanal d'actualitat esportiva comarcal",
         description:
-          "Presentador i redactor d’un programa setmanal sobre l’actualitat esportiva comarcal. Difusió en directe i per xarxes socials. Web en el link de sota.",
+          "Presentador i redactor d'un programa setmanal sobre l'actualitat esportiva comarcal. Difusió en directe i per xarxes socials.",
+        type: "Comunicació esportiva",
         link: "https://laresacadeportiva.com",
-        type: "Comunicació esportiva",
-      },
-      {
-        title: "Inici de pràctiques TIC al CPNL",
-        description:
-          "Pràctiques a l'àrea de sistemes i suport TIC dins d'una entitat pública. Tasques relacionades amb Microsoft 365, servidors, gestió d’usuaris i processos de transformació digital.",
-        type: "Pràctiques tècniques",
-      },
-      {
-        title: "Narració esportiva",
-        description:
-          "Narrador de partits de futbol i hoquei patins. Experiència a nivell local i comarcal, tant en directe com en resums post-partit.",
-        type: "Comunicació esportiva",
-      },
-      {
-        title: "TFG en procés: Clipatge automàtic amb IA",
-        description:
-          "Projecte de visió per computador per detectar jugades clau, generar clips i estadístiques automàticament en partits de futbol amateur.",
-        type: "TFG / Visió per computador",
       },
     ],
   },
 
   es: {
     heading: "Proyectos",
-    highlight: "realizados",
+    highlight: "destacados",
     description:
-      "Una selección de proyectos reales que combinan desarrollo técnico, producción deportiva y comunicación audiovisual.",
+      "Una selección de proyectos recientes que combinan IA, visión por computador y desarrollo de software con impacto real.",
     linkGithub: "Ver en GitHub",
     linkDemo: "Ver demostración",
+    linkWebsite: "Visitar la web",
     items: [
       {
-        title: "Retransmisión en directo (fútbol)",
+        title: "Análisis táctico de fútbol amateur desde la cámara VEO",
+        subtitle: "Pipeline de visión por computador para clubes de base",
+        year: "2026",
         description:
-          "Realización técnica de partidos con cámaras, gráficos, audio y narración. Experiencia con OBS y gestión de directos en la Primera Catalana.",
-        type: "Producción deportiva",
-        link: "https://www.youtube.com/live/KL7PQu_egUw?si=aoiUQ7PY_Z7ZqsXu",
+          "Pipeline completa de visión por computador que convierte el vídeo de la cámara VEO en análisis táctico real para clubes de fútbol amateur, sin hardware adicional ni personal técnico especializado.",
+        type: "TFG · Computer Vision · Sports Analytics",
+        tags: [
+          "Python",
+          "YOLO",
+          "OpenCV",
+          "scikit-learn",
+          "Streamlit",
+          "Homografía",
+          "GLSL Shader Analysis",
+          "LLM",
+        ],
       },
       {
-        title: "Proyectos UPF (C++, Java, Python)",
+        title: "Karaoke Software a medida",
+        subtitle: "Sistema de gestión de cola en tiempo real para bar local",
+        year: "2024",
         description:
-          "Desarrollo de proyectos universitarios como simuladores, aplicaciones CLI y trabajos de programación estructurada.",
-        type: "Académico",
-        link: "https://github.com/xavialgarraa",
+          "Software de karaoke construido a medida para un bar local. Gestión de cola en tiempo real, búsqueda por título y artista, y control desde el móvil de los clientes. En uso real.",
+        type: "Side Project · Cliente Real · Real-time",
+        tags: ["React", "Node.js", "WebSockets", "JavaScript", "DigitalOcean"],
       },
       {
-        title: "Periodista local: La Resaca Deportiva",
+        title: "La Resaca Deportiva",
+        subtitle: "Programa semanal de actualidad deportiva comarcal",
         description:
-          "Presentador y redactor de un programa semanal sobre la actualidad deportiva comarcal. Difusión en directo y por redes sociales. Web en el link de abajo.",
+          "Presentador y redactor de un programa semanal sobre la actualidad deportiva comarcal. Difusión en directo y por redes sociales.",
+        type: "Comunicación deportiva",
         link: "https://laresacadeportiva.com",
-        type: "Comunicación deportiva",
-      },
-
-      {
-        title: "Inicio de prácticas TIC en el CPNL",
-        description:
-          "Prácticas en el área de sistemas y soporte TIC dentro de una entidad pública. Tareas relacionadas con Microsoft 365, servidores, gestión de usuarios y procesos de transformación digital.",
-        type: "Prácticas técnicas",
-      },
-      {
-        title: "Narración deportiva",
-        description:
-          "Narrador de partidos de fútbol y hockey patines. Experiencia a nivel local y comarcal, tanto en directo como en resúmenes post-partido.",
-        type: "Comunicación deportiva",
-      },
-      {
-        title: "TFG en proceso: Clipado automático con IA",
-        description:
-          "Proyecto de visión por computador para detectar jugadas clave, generar clips y estadísticas automáticamente en partidos de fútbol amateur.",
-        type: "TFG / Visión por computador",
       },
     ],
   },
 
   en: {
-    heading: "Projects",
-    highlight: "completed",
+    heading: "Featured",
+    highlight: "projects",
     description:
-      "A selection of real-world projects that combine technical development, sports production, and audiovisual communication.",
+      "A selection of recent projects combining AI, computer vision and software development with real-world impact.",
     linkGithub: "View on GitHub",
     linkDemo: "Watch demo",
+    linkWebsite: "Visit website",
     items: [
       {
-        title: "Live Sports Broadcast",
+        title: "Tactical analysis of amateur football from the VEO camera",
+        subtitle: "Computer vision pipeline for grassroots clubs",
+        year: "2026",
         description:
-          "Technical production of football matches with cameras, graphics, audio, and commentary. Experience with OBS and live streaming management in the Catalan First Division.",
-        type: "Sports production",
-        link: "https://www.youtube.com/live/KL7PQu_egUw?si=aoiUQ7PY_Z7ZqsXu",
+          "End-to-end computer vision pipeline that turns raw VEO footage into actionable tactical analysis for amateur football clubs — no extra hardware, no specialist staff required.",
+        type: "Thesis · Computer Vision · Sports Analytics",
+        tags: [
+          "Python",
+          "YOLO",
+          "OpenCV",
+          "scikit-learn",
+          "Streamlit",
+          "Homography",
+          "GLSL Shader Analysis",
+          "LLM",
+        ],
       },
       {
-        title: "UPF Projects (C++, Java, Python)",
+        title: "Custom karaoke software",
+        subtitle: "Real-time queue management for a local bar",
+        year: "2024",
         description:
-          "Development of university projects such as simulators, CLI applications, and structured programming assignments.",
-        type: "Academic",
-        link: "https://github.com/xavialgarraa",
+          "Custom-built karaoke software for a local bar. Real-time queue management, search by title and artist, and customer control from their own phone. In active production use.",
+        type: "Side Project · Real Client · Real-time",
+        tags: ["React", "Node.js", "WebSockets", "JavaScript", "DigitalOcean"],
       },
       {
-        title: "Local Journalist: La Resaca Deportiva",
+        title: "La Resaca Deportiva",
+        subtitle: "Weekly local sports show",
         description:
-          "Host and writer of a weekly show covering local sports news. Broadcast live and shared on social media. Website available at the link below.",
+          "Host and writer of a weekly show covering local sports news. Broadcast live and shared on social media.",
+        type: "Sports communication",
         link: "https://laresacadeportiva.com",
-        type: "Sports communication",
-      },
-      {
-        title: "TIC Internship at CPNL",
-        description:
-          "Internship in the systems and IT support department of a public institution. Tasks involving Microsoft 365, servers, user management, and digital transformation processes.",
-        type: "Technical internship",
-      },
-      {
-        title: "Sports Commentary",
-        description:
-          "Commentator for football and roller hockey matches. Local and regional experience, both live and in post-match highlights.",
-        type: "Sports communication",
-      },
-      {
-        title: "Thesis in Progress: Automatic Clipping with AI",
-        description:
-          "Computer vision project to detect key plays, generate highlight clips, and automatically produce stats for amateur football matches.",
-        type: "Thesis / Computer Vision",
       },
     ],
   },
