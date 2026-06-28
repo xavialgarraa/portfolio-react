@@ -2,6 +2,7 @@ import { Navbar } from "../components/Navbar";
 import { StarBackground } from "../components/StarBackground";
 import { HeroSection } from "../components/HeroSection";
 import { AboutMe } from "../components/AboutMe";
+import { Experience } from "../components/Experience";
 import { Contact } from "../components/Contact";
 import { Projects } from "../components/Projects";
 import { Footer } from "../components/Footer";
@@ -20,6 +21,7 @@ export function Home() {
     <main>
         <HeroSection />
         <AboutMe />
+        <Experience />
         <Projects />
         <Contact />
     </main>

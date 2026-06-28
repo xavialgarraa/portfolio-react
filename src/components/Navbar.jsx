@@ -41,6 +41,7 @@ export const Navbar = () => {
   const navItems = [
     { name: t.home, href: "#hero" },
     { name: t.about, href: "#about" },
+    { name: t.experience, href: "#experience" },
     { name: t.projects, href: "#projects" },
     { name: t.axprod, href: "/portfolio-react/axprod" },
     { name: t.contact, href: "#contact" },
