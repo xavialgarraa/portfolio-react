@@ -103,7 +103,7 @@ export const Contact = () => {
         {/* Redes sociales */}
         <div className="pt-6 flex justify-center gap-6 animate-fade-in-delay-4">
           <a
-            href="https://www.linkedin.com/in/xavialgarra"
+            href="https://www.linkedin.com/in/xavialgarra/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
