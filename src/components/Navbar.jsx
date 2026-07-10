@@ -14,10 +14,16 @@ export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
+  const [progress, setProgress] = useState(0);
   const { language, changeLanguage } = useLanguage();
 
   useEffect(() => {
-    const handleScroll = () => setIsScrolled(window.scrollY > 10);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+      const doc = document.documentElement;
+      const max = doc.scrollHeight - doc.clientHeight;
+      setProgress(max > 0 ? window.scrollY / max : 0);
+    };
     const checkStoredTheme = () => {
       const storedTheme = localStorage.getItem("theme");
       setIsDarkMode(storedTheme === "dark");
@@ -61,6 +67,10 @@ export const Navbar = () => {
           : "py-5"
       )}
     >
+      <div
+        className="scroll-progress"
+        style={{ transform: `scaleX(${progress})` }}
+      />
       <div className="container flex items-center justify-between">
         <a
           className="text-xl font-bold text-primary flex items-center space-x-2"
@@ -71,7 +81,7 @@ export const Navbar = () => {
             alt="Logo"
             className="w-8 h-8 transition-all duration-300"
           />
-          <span className="relative z-10">
+          <span className="relative z-10 font-display tracking-wide">
             <span className="text-glow text-foreground">Xavi Algarra</span> {t.portfolio}
           </span>
         </a>
@@ -82,7 +92,7 @@ export const Navbar = () => {
             <a
               key={item.name}
               href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors duration-300"
+              className="nav-link text-foreground/80 hover:text-primary transition-colors duration-300"
             >
               {item.name}
             </a>
@@ -127,7 +137,7 @@ export const Navbar = () => {
                 key={item.name}
                 href={item.href}
                 onClick={() => setIsMenuOpen(false)}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300"
+                className="font-display tracking-wide text-foreground/80 hover:text-primary transition-colors duration-300"
               >
                 {item.name}
               </a>

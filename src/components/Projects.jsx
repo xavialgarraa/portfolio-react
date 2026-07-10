@@ -1,59 +1,26 @@
-import { Github, PlayCircle, ExternalLink } from "lucide-react";
+import { Github, PlayCircle, ExternalLink, Radio, Sparkles } from "lucide-react";
 import { translationsProjects } from "../translations/TranslationProjects";
 import { useLanguage } from "../context/LanguageContext";
+import { handleSpotlight } from "../lib/spotlight";
+
+const linkClass =
+  "inline-flex items-center gap-1.5 text-sm text-primary hover:underline underline-offset-4 transition-colors";
 
 export const Projects = () => {
   const { language } = useLanguage();
   const t = translationsProjects[language];
 
-  const renderLink = (link) => {
-    if (!link) return null;
-    if (link.includes("github")) {
-      return (
-        <a
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-primary hover:underline text-sm"
-        >
-          <Github className="w-4 h-4" />
-          {t.linkGithub}
-        </a>
-      );
-    }
-    if (link.includes("youtube") || link.includes("youtu.be")) {
-      return (
-        <a
-          href={link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 text-primary hover:underline text-sm"
-        >
-          <PlayCircle className="w-4 h-4" />
-          {t.linkDemo}
-        </a>
-      );
-    }
-    return (
-      <a
-        href={link}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-1 text-primary hover:underline text-sm"
-      >
-        <ExternalLink className="w-4 h-4" />
-        {t.linkWebsite || t.linkDemo}
-      </a>
-    );
-  };
-
   return (
     <section id="projects" className="py-24 px-6">
       <div className="max-w-6xl mx-auto text-center space-y-12">
-        <h2 className="text-4xl font-bold">
+        <h2 className="section-title text-4xl md:text-5xl" data-reveal>
           {t.heading} <span className="text-primary">{t.highlight}</span>
         </h2>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
+        <p
+          className="text-muted-foreground max-w-2xl mx-auto"
+          data-reveal
+          style={{ "--reveal-delay": "0.1s" }}
+        >
           {t.description}
         </p>
 
@@ -61,10 +28,24 @@ export const Projects = () => {
           {t.items.map((proj, idx) => (
             <article
               key={idx}
-              className="bg-card border border-border rounded-lg p-6 shadow-md hover:shadow-lg transition-all text-left animate-fade-in flex flex-col"
+              data-reveal
+              style={{ "--reveal-delay": `${0.1 + idx * 0.12}s` }}
+              onMouseMove={handleSpotlight}
+              className={`spotlight-card bg-card border rounded-xl p-6 shadow-md text-left flex flex-col ${
+                proj.featured ? "border-primary/40" : "border-border"
+              }`}
             >
+              {proj.featured && (
+                <span className="inline-flex items-center gap-1.5 self-start mb-3 text-[10px] uppercase tracking-[0.2em] text-primary bg-primary/10 border border-primary/30 rounded-full px-2.5 py-1">
+                  <Sparkles className="w-3 h-3" />
+                  {t.featured}
+                </span>
+              )}
+
               <div className="flex items-baseline justify-between gap-2 mb-2">
-                <h3 className="text-lg font-semibold">{proj.title}</h3>
+                <h3 className="text-lg font-semibold leading-snug">
+                  {proj.title}
+                </h3>
                 {proj.year && (
                   <span className="text-xs text-muted-foreground font-mono shrink-0">
                     {proj.year}
@@ -85,7 +66,7 @@ export const Projects = () => {
                   {proj.tags.map((tag) => (
                     <li
                       key={tag}
-                      className="text-[10px] uppercase tracking-wider text-muted-foreground border border-border rounded px-2 py-0.5"
+                      className="text-[10px] uppercase tracking-wider text-muted-foreground border border-border rounded px-2 py-0.5 transition-colors hover:border-primary/50 hover:text-primary"
                     >
                       {tag}
                     </li>
@@ -93,11 +74,57 @@ export const Projects = () => {
                 </ul>
               )}
 
-              <div className="mt-auto flex items-center justify-between gap-3 pt-2">
+              <div className="mt-auto flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-border/60">
                 <span className="text-xs text-primary bg-primary/10 px-2 py-1 rounded-full">
                   {proj.type}
                 </span>
-                {renderLink(proj.link)}
+
+                <div className="flex flex-wrap items-center gap-4">
+                  {proj.github && (
+                    <a
+                      href={proj.github}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={linkClass}
+                    >
+                      <Github className="w-4 h-4" />
+                      {t.linkGithub}
+                    </a>
+                  )}
+                  {proj.live && (
+                    <a
+                      href={proj.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={linkClass}
+                    >
+                      <Radio className="w-4 h-4" />
+                      {t.linkLive}
+                    </a>
+                  )}
+                  {proj.website && (
+                    <a
+                      href={proj.website}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={linkClass}
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      {t.linkWebsite}
+                    </a>
+                  )}
+                  {proj.demo && (
+                    <a
+                      href={proj.demo}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={linkClass}
+                    >
+                      <PlayCircle className="w-4 h-4" />
+                      {t.linkDemo}
+                    </a>
+                  )}
+                </div>
               </div>
             </article>
           ))}

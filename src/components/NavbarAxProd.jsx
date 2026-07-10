@@ -5,13 +5,12 @@ import LogoLight from "../assets/logo.png";
 import LogoDark from "../assets/logo-blanco.png";
 import { ThemeToggle } from "./ThemeToggle"; 
 import { useLanguage } from "../context/LanguageContext";
-import { translations } from "../translations/TranslationNavbar";
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDarkMode, setIsDarkMode] = useState(false);
-  const { language, changeLanguage } = useLanguage();
+  const { changeLanguage } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 10);
@@ -33,7 +32,6 @@ export const Navbar = () => {
     };
   }, []);
 
-  const t = translations[language];
 
  const navItems = [
   { name: "Home", href: "/portfolio-react/#hero" },

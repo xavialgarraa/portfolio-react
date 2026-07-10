@@ -1,5 +1,5 @@
 import { ArrowDown } from "lucide-react";
-import { useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState } from "react";
 import Icono from "../assets/xavi.jpg";
 import { translationshero } from "../translations/TranslationHero";
 import { useLanguage } from "../context/LanguageContext";
@@ -164,7 +164,6 @@ export const HeroSection = () => {
   const [glitching, setGlitching]   = useState(false);
   const [scanY, setScanY]           = useState(-10);
   const [hoverImg, setHoverImg]     = useState(false);
-  const [scramble, setScramble]     = useState(false);
 
   // Glitch aleatorio
   useEffect(() => {
@@ -172,8 +171,7 @@ export const HeroSection = () => {
       const wait = 3200 + Math.random() * 4500;
       setTimeout(() => {
         setGlitching(true);
-        setScramble(true);
-        setTimeout(() => { setGlitching(false); setScramble(false); }, 260);
+        setTimeout(() => setGlitching(false), 260);
         loop();
       }, wait);
     };
@@ -192,7 +190,7 @@ export const HeroSection = () => {
     <>
       {/* ── ESTILOS GLOBALES del componente ── */}
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap');
+        /* Fuentes cargadas globalmente en index.html + @font-face de index.css */
 
         /* ── Cursor typewriter ── */
         .tw-cursor {
@@ -285,14 +283,14 @@ export const HeroSection = () => {
 
         /* Nombre con glitch */
         .hnw {
-          font-family: 'Syne', sans-serif;
+          font-family: var(--font-display);
           font-weight: 800;
           font-size: clamp(2.8rem, 7.5vw, 5.8rem);
           line-height: 1;
           color: hsl(var(--foreground));
           position: relative;
           display: inline-block;
-          letter-spacing: -0.02em;
+          letter-spacing: 0.01em;
         }
         .hnw.glitch { animation: gClip 0.26s steps(1) both; }
         .hnw .gr, .hnw .gg {
@@ -387,7 +385,7 @@ export const HeroSection = () => {
           gap: 0.05rem;
         }
         .hctr-n {
-          font-family: 'Syne', sans-serif;
+          font-family: var(--font-display);
           font-weight: 800;
           font-size: 1.45rem;
           color: hsl(var(--foreground));
@@ -505,7 +503,7 @@ export const HeroSection = () => {
         .hghost {
           position: absolute; bottom: 0; left: 0;
           white-space: nowrap; pointer-events: none; z-index: 0; user-select: none;
-          font-family: 'Syne', sans-serif; font-weight: 800;
+          font-family: var(--font-display); font-weight: 800;
           font-size: clamp(6rem, 20vw, 20rem);
           color: transparent;
           -webkit-text-stroke: 1px hsl(var(--primary) / 0.055);

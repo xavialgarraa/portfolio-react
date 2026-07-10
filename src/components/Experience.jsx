@@ -9,16 +9,25 @@ export const Experience = () => {
   return (
     <section id="experience" className="py-24 px-6">
       <div className="max-w-5xl mx-auto text-center space-y-12">
-        <h2 className="text-4xl font-bold">
+        <h2 className="section-title text-4xl md:text-5xl" data-reveal>
           {t.heading} <span className="text-primary">{t.highlight}</span>
         </h2>
-        <p className="text-muted-foreground max-w-2xl mx-auto">
+        <p
+          className="text-muted-foreground max-w-2xl mx-auto"
+          data-reveal
+          style={{ "--reveal-delay": "0.1s" }}
+        >
           {t.description}
         </p>
 
         <ol className="relative border-l border-border ml-3 sm:ml-6 text-left space-y-10">
           {t.items.map((item, idx) => (
-            <li key={idx} className="pl-6 sm:pl-8 relative">
+            <li
+              key={idx}
+              className="pl-6 sm:pl-8 relative"
+              data-reveal
+              style={{ "--reveal-delay": `${0.1 + idx * 0.1}s` }}
+            >
               <span className="absolute -left-[11px] top-1 flex items-center justify-center w-5 h-5 rounded-full bg-primary/10 border border-primary/40">
                 <Briefcase className="w-3 h-3 text-primary" />
               </span>

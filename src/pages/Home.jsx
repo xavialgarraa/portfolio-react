@@ -6,9 +6,12 @@ import { Experience } from "../components/Experience";
 import { Contact } from "../components/Contact";
 import { Projects } from "../components/Projects";
 import { Footer } from "../components/Footer";
+import { useReveal } from "../lib/useReveal";
 
 // Home.jsx
 export function Home() {
+  useReveal();
+
   return (
     <div className="min-h-screen bg-background text-foreground overflow-x-hidden">
     

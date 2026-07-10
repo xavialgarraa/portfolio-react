@@ -2,6 +2,7 @@ import { Briefcase, Code, Mic } from "lucide-react";
 import CV from "../assets/cv.pdf";
 import { translationsAboutMe } from "../translations/TranslationAboutMe";
 import { useLanguage } from "../context/LanguageContext";
+import { handleSpotlight } from "../lib/spotlight";
 
 export const AboutMe = () => {
   const { language } = useLanguage();
@@ -10,12 +11,15 @@ export const AboutMe = () => {
   return (
     <section id="about" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
-        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center">
+        <h2
+          className="section-title text-3xl md:text-5xl mb-12 text-center"
+          data-reveal
+        >
           {t.heading}
         </h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
+          <div className="space-y-6" data-reveal style={{ "--reveal-delay": "0.1s" }}>
             <h3 className="text-2xl font-semibold">{t.subtitle}</h3>
 
             <p className="text-muted-foreground">{t.paragraph1}</p>
@@ -36,8 +40,8 @@ export const AboutMe = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 gap-6">
-            <div className="gradient-border p-6 card-hover">
+          <div className="grid grid-cols-1 gap-6" data-reveal style={{ "--reveal-delay": "0.2s" }}>
+            <div className="gradient-border spotlight-card p-6" onMouseMove={handleSpotlight}>
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <Code className="h-6 w-6 text-primary" />
@@ -49,7 +53,7 @@ export const AboutMe = () => {
               </div>
             </div>
 
-            <div className="gradient-border p-6 card-hover">
+            <div className="gradient-border spotlight-card p-6" onMouseMove={handleSpotlight}>
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <Mic className="h-6 w-6 text-primary" />
@@ -61,7 +65,7 @@ export const AboutMe = () => {
               </div>
             </div>
 
-            <div className="gradient-border p-6 card-hover">
+            <div className="gradient-border spotlight-card p-6" onMouseMove={handleSpotlight}>
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-full bg-primary/10">
                   <Briefcase className="h-6 w-6 text-primary" />

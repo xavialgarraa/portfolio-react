@@ -159,7 +159,7 @@ function Trivia({ preguntas }) {
   const [respuesta, setRespuesta] = useState(null);
   const [puntuacion, setPuntuacion] = useState(0);
   const [temporizador, setTemporizador] = useState(15);
-  const [respondido, setRespondido] = useState(false);
+  const [, setRespondido] = useState(false);
   const respondidoRef = useRef(false);
   const pregunta = preguntasAleatorias[preguntaActual];
   const finalizado = preguntaActual >= preguntasAleatorias.length;

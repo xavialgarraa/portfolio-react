@@ -80,9 +80,15 @@ try {
     await page.goto(url, { waitUntil: "networkidle0", timeout: 60000 });
     await page.waitForSelector("#hero", { timeout: 10000 });
 
-    const html = await page.evaluate(
-      () => "<!DOCTYPE html>\n" + document.documentElement.outerHTML
-    );
+    const html = await page.evaluate(() => {
+      // El HTML estático no debe conservar el estado del reveal-on-scroll:
+      // sin JS, "reveal-ready" dejaría el contenido con opacity 0.
+      document.documentElement.classList.remove("reveal-ready");
+      document
+        .querySelectorAll("[data-reveal].is-revealed")
+        .forEach((el) => el.classList.remove("is-revealed"));
+      return "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+    });
 
     const outPath =
       route === "/"

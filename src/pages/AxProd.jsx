@@ -18,7 +18,6 @@ import { Linkedin, Instagram, Github, MessageCircle } from "lucide-react";
 
 import { PackCard } from "../components/PackCard";
 import { Contact } from "../components/Contact";
-import { m } from "framer-motion";
 
 const packData = [
   {

@@ -22,12 +22,16 @@ export const Contact = () => {
     <section id="contact" className="py-24 px-4">
       <div className="container max-w-3xl mx-auto text-center space-y-10">
         {/* Título */}
-        <h2 className="text-3xl sm:text-4xl font-bold animate-fade-in">
+        <h2 className="section-title text-3xl sm:text-5xl" data-reveal>
           {t.heading.split(" ")[0]} <span className="text-primary">{t.heading.split(" ").slice(1).join(" ")}</span>
         </h2>
 
         {/* Intro */}
-        <p className="text-muted-foreground max-w-xl mx-auto animate-fade-in-delay-1">
+        <p
+          className="text-muted-foreground max-w-xl mx-auto"
+          data-reveal
+          style={{ "--reveal-delay": "0.1s" }}
+        >
           {t.intro}
         </p>
 
@@ -35,7 +39,9 @@ export const Contact = () => {
         <form
           action="https://formspree.io/f/mrbkovvn"
           method="POST"
-          className="space-y-6 text-left animate-fade-in-delay-2"
+          className="space-y-6 text-left"
+          data-reveal
+          style={{ "--reveal-delay": "0.2s" }}
         >
           {/* Nombre */}
           <div className="flex flex-col gap-2">
@@ -90,7 +96,7 @@ export const Contact = () => {
         </form>
 
         {/* Email directo */}
-        <div className="pt-6 text-muted-foreground text-sm animate-fade-in-delay-3">
+        <div className="pt-6 text-muted-foreground text-sm" data-reveal>
           {t.direct.text}{" "}
           <a
             href="mailto:xavialgarraperez@gmail.com"
@@ -101,7 +107,7 @@ export const Contact = () => {
         </div>
 
         {/* Redes sociales */}
-        <div className="pt-6 flex justify-center gap-6 animate-fade-in-delay-4">
+        <div className="pt-6 flex justify-center gap-6" data-reveal style={{ "--reveal-delay": "0.1s" }}>
           <a
             href="https://www.linkedin.com/in/xavialgarra/"
             target="_blank"

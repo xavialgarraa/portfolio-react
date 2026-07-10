@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+/* ─────────────────────────────────────────────
+   BIGGER DISPLAY — fuente display local preferida.
+   Coloca el archivo en /public/fonts/Bigger.otf.
+   Si el navegador no la encuentra, cae a
+   Big Shoulders Display (Google Fonts, index.html).
+───────────────────────────────────────────── */
+@font-face {
+  font-family: "Bigger Display";
+  src: url("/fonts/Bigger.otf") format("opentype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 @theme {
   --color-border: hsl(var(--border));
   --color-background: hsl(var(--background));
@@ -9,7 +23,14 @@
   --color-primary: hsl(var(--primary));
   --color-primary-foreground: hsl(var(--primary-foreground));
 
+  --color-muted-foreground: hsl(var(--muted-foreground));
+
   --color-card: hsl(var(--card));
+
+  /* Stack display: Bigger Display → Big Shoulders Display → Syne */
+  --font-display: "Bigger Display", "Big Shoulders Display", "Syne",
+    ui-sans-serif, sans-serif;
+  --font-mono-brand: "DM Mono", ui-monospace, monospace;
 
   --animate-float: float 6s ease-in-out infinite; /* Animación de flotación continua*/
   --animate-pulse-subtle: pulse-subtle 4s ease-in-out infinite; /* Pulso suave*/
@@ -73,6 +94,7 @@
 
     --card: 0 0% 100%;                     /* Fondo de tarjetas */
     --border: 214 32% 91%;                 /* Bordes sutiles */
+    --muted-foreground: 215 16% 40%;       /* Texto secundario */
 
     --primary: 215 85% 27%;                /* Color primario (botones, enlaces) */
     --primary-foreground: 210 40% 98%;     /* Texto encima del primario */
@@ -86,11 +108,151 @@
 
     --card: 222 47% 8%;                    /* Fondo de tarjetas en modo oscuro */
     --border: 215 19% 35%;                 /* Bordes en modo oscuro */
+    --muted-foreground: 217 15% 68%;       /* Texto secundario en oscuro */
 
     --primary: 215 100% 50%;               /* Color primario en modo oscuro */
     --primary-foreground: 0 0% 100%;       /* Texto blanco encima del primario */
     --primary-foreground-2: 0 0% 100%;       /* Texto blanco encima del primario */
 
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  /* Tipografía display en toda la jerarquía de títulos del sitio */
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: 0.015em;
+  }
+
+  ::selection {
+    background: hsl(var(--primary) / 0.25);
+    color: hsl(var(--foreground));
+  }
+
+  /* Scrollbar sutil acorde al tema */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: hsl(var(--background));
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 6px;
+    border: 2px solid hsl(var(--background));
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--primary) / 0.5);
+  }
+
+  /* Anillo de foco accesible y consistente */
+  :focus-visible {
+    outline: 2px solid hsl(var(--primary) / 0.7);
+    outline-offset: 2px;
+  }
+}
+
+/* ─────────────────────────────────────────────
+   REVEAL ON SCROLL — activado por useReveal()
+   Solo se aplica cuando JS añade .reveal-ready,
+   así el HTML prerenderizado nunca queda oculto.
+───────────────────────────────────────────── */
+@media (prefers-reduced-motion: no-preference) {
+  html.reveal-ready [data-reveal] {
+    opacity: 0;
+    transform: translateY(26px);
+    transition:
+      opacity 0.7s ease-out,
+      transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--reveal-delay, 0s);
+  }
+  html.reveal-ready [data-reveal].is-revealed {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@layer components {
+  /* Título de sección en tipografía display */
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: 0.01em;
+  }
+
+  /* Tarjeta con spotlight que sigue al ratón (vars --mx/--my desde JS) */
+  .spotlight-card {
+    position: relative;
+    overflow: hidden;
+    transition:
+      transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 0.35s ease,
+      box-shadow 0.35s ease;
+  }
+  .spotlight-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+      340px circle at var(--mx, 50%) var(--my, 50%),
+      hsl(var(--primary) / 0.1),
+      transparent 65%
+    );
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  .spotlight-card:hover {
+    transform: translateY(-6px);
+    border-color: hsl(var(--primary) / 0.45);
+    box-shadow: 0 20px 45px -18px hsl(var(--primary) / 0.35);
+  }
+  .spotlight-card:hover::before {
+    opacity: 1;
+  }
+
+  /* Barra de progreso de scroll bajo el navbar */
+  .scroll-progress {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background: linear-gradient(
+      90deg,
+      hsl(var(--primary)),
+      hsl(var(--primary) / 0.55)
+    );
+    transform: scaleX(0);
+    transform-origin: left;
+    pointer-events: none;
+  }
+
+  /* Enlace de navegación con subrayado animado */
+  .nav-link {
+    position: relative;
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: 0.08em;
+  }
+  .nav-link::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    height: 1px;
+    width: 100%;
+    background: hsl(var(--primary));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .nav-link:hover::after,
+  .nav-link:focus-visible::after {
+    transform: scaleX(1);
   }
 }
 
@@ -122,7 +284,7 @@
 
 @utility text-glow {
   @apply relative;
-  text-shadow: 0 0 10px rgba()
+  text-shadow: 0 0 12px hsl(var(--primary) / 0.45);
 }
 
 @utility card-hover {
@@ -137,9 +299,12 @@
 }
 
 @utility cosmic-button {
-  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
+  @apply px-6 py-2 rounded-full bg-primary text-primary-foreground
          transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
          hover:scale-105 active:scale-95;
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.06em;
 }
 
 @utility star {
